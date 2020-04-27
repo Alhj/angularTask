@@ -4,6 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SignUpUserService {
+  email:string;
+  password:string;
 
-  constructor() { }
+  setPassword(password:string){
+    this.password = password;
+  }
+
+  setEmail(email:string){
+    this.email = email;
+  }
 }

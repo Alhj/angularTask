@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-
+import { SignUpUserService } from './sign-up-user.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,12 +9,23 @@ import { FormBuilder } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
+  //user
+  signUpForm
   constructor(
-    private formBuilder: FormBuilder
+    private signUpUserService: SignUpUserService,
+    private formBuilder: FormBuilder,
   ) {
+    this.signUpForm = this.formBuilder.group({
+      email: '',
+      password: ''
+    });
   }
 
   ngOnInit(): void {
+  }
+
+  onSumbit(coustomData): void {
+    console.warn(coustomData)
   }
 
 }
