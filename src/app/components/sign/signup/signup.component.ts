@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { SignUpUserService } from './sign-up-user.service';
 
@@ -10,17 +11,14 @@ import { SignUpUserService } from './sign-up-user.service';
 export class SignupComponent implements OnInit {
 
   //user
-  signUpForm
-  constructor(
-    private signUpUserService: SignUpUserService,
-    private formBuilder: FormBuilder,
-  ) {
-    this.signUpForm = this.formBuilder.group({
-      email: '',
-      password: ''
-    });
+
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, ) {
   }
 
+  signUpForm = this.fb.group({
+    email: '',
+    password: ''
+  });
   ngOnInit(): void {
   }
 
