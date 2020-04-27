@@ -8,6 +8,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { SignupComponent } from './components/sign/signup/signup.component';
 import { SigninComponent } from './components/sign/signin/signin.component';
 import { ContianerComponent } from './components/layout/contianer/contianer.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ContianerComponent } from './components/layout/contianer/contianer.comp
     FooterComponent,
     SignupComponent,
     SigninComponent,
-    ContianerComponent
+    ContianerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
