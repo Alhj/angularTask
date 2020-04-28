@@ -1,3 +1,20 @@
-<div>
-  <p>hello signup</p>
+<div class="signup">
+  <form
+    class="signUpForm"
+    [formGroup]="signUpForm"
+    (ngSubmit)="onSumbit(signUpForm.value)"
+  >
+    <input type="text" formControlName="email" placeholder="email..." />
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="password..."
+    />
+    <input
+      type="password"
+      formControlName="comparePassword"
+      placeholder="compare password ..."
+    />
+    <input type="submit" value="sign up"/>
+  </form>
 </div>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
-import { SignUpUserService } from './sign-up-user.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -10,19 +9,19 @@ import { SignUpUserService } from './sign-up-user.service';
 })
 export class SignupComponent implements OnInit {
 
-  //user
-
   constructor(private route: ActivatedRoute, private fb: FormBuilder, ) {
   }
 
-  signUpForm = this.fb.group({
+  signUpForm: FormGroup = this.fb.group({
     email: '',
-    password: ''
+    password: '',
+    comparePassword: '',
   });
   ngOnInit(): void {
   }
 
-  onSumbit(coustomData): void {
+  onSumbit(coustomData: FormGroup): void {
+    this.signUpForm.reset();
     console.warn(coustomData)
   }
 

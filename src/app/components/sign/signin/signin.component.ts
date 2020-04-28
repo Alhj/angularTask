@@ -10,8 +10,10 @@ import { SignInService } from './sign-in.service'
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, 
-    private fb: FormBuilder) {
+  constructor(
+    private route: ActivatedRoute,
+    private fb: FormBuilder
+  ) {
   }
 
   singInForm = this.fb.group({
@@ -20,6 +22,11 @@ export class SigninComponent implements OnInit {
   })
 
   ngOnInit(): void {
+  }
+
+  onSumbit(coustomData): void {
+    this.singInForm.reset()
+    console.warn(coustomData)
   }
 
 }

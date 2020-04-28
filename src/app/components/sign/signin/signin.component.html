@@ -1,5 +1,6 @@
-<form [formGroup]="singInForm">
+<form [formGroup]="singInForm" (ngSubmit)="onSumbit(singInForm.value)">
   <p>hello world 1</p>
   <input type="text" formControlName="email"/>
   <input type="password" formControlName="password"/>
+  <input type="submit" value="sign in"/>
 </form>
