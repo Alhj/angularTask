@@ -27,22 +27,18 @@ export class SignupComponent implements OnInit {
 
   onSumbit(coustomData: SignUpForm): void {
     this.signUpForm.reset();
-    let noProblem: boolean = true;
-
-    while (noProblem) {
+ 
       if (!emailValidation(coustomData.email)) {
-
-        noProblem = false
-        break;
+        this.message = 'the email is not long enough or not correct'
+        return;
       }
-      if(passwordLength(coustomData.password)) {
-        noProblem = false
-        break;
+      if (passwordLength(coustomData.password)) {
+        this.message = 'the password is not long enough'
+        
+        return;
       }
       console.log('here');
-      noProblem = false
-    }
-
+  
   }
 
 }
