@@ -12,6 +12,8 @@ import { SignupComponent } from './components/sign/signup/signup.component';
 import { SigninComponent } from './components/sign/signin/signin.component';
 import { ContianerComponent } from './components/layout/contianer/contianer.component';
 import { HomeComponent } from './components/home/home.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskComponent } from './components/tasks/task/task.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HomeComponent } from './components/home/home.component';
     SignupComponent,
     SigninComponent,
     ContianerComponent,
-    HomeComponent
+    HomeComponent,
+    TasksComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

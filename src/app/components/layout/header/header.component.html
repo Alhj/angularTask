@@ -1,9 +1,13 @@
 <header>
-  <div></div>
+  <div>
+    <p>{{isSignIn | async}}</p>
+  </div>
   <nav>
     <ul>
-      <li *ngIf="isSignIn; then thenblock else elseblock"></li>
-      <ng-template #thenblock><a routerLink="/signOut">sign out</a></ng-template>
+      <li *ngIf="isSignIn | async; then thenblock; else elseblock"></li>
+      <ng-template #thenblock
+        ><a routerLink="/signOut">sign out</a></ng-template
+      >
       <ng-template #elseblock><a routerLink="/signIn">sign in</a></ng-template>
     </ul>
   </nav>
