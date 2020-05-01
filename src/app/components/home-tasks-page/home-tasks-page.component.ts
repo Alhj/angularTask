@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { tasks } from '../../models/apiTask/types';
+
 
 @Component({
   selector: 'app-home-tasks-page',
@@ -7,9 +8,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home-tasks-page.component.css']
 })
 export class HomeTasksPageComponent implements OnInit {
-  constructor(private router: ActivatedRoute) { }
+  constructor() { }
 
   isLoading: boolean = true;
+  
+  userTasks:[tasks]
 
   async ngOnInit(): Promise<void> {
     setTimeout(() => {
