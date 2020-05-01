@@ -14,6 +14,7 @@ import { ContianerComponent } from './components/layout/contianer/contianer.comp
 import { HomeComponent } from './components/home/home.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/tasks/task/task.component';
+import { TasksHomePageComponent } from './componenets/tasks-home-page/tasks-home-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TaskComponent } from './components/tasks/task/task.component';
     ContianerComponent,
     HomeComponent,
     TasksComponent,
-    TaskComponent
+    TaskComponent,
+    TasksHomePageComponent
   ],
   imports: [
     BrowserModule,
