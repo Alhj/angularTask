@@ -14,7 +14,8 @@ import { ContianerComponent } from './components/layout/contianer/contianer.comp
 import { HomeComponent } from './components/home/home.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/tasks/task/task.component';
-import { TasksHomePageComponent } from './componenets/tasks-home-page/tasks-home-page.component';
+import { HomeTasksPageComponent } from './components/home-tasks-page/home-tasks-page.component';
+import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TasksHomePageComponent } from './componenets/tasks-home-page/tasks-home
     HomeComponent,
     TasksComponent,
     TaskComponent,
-    TasksHomePageComponent
+    HomeTasksPageComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,6 @@
+<div *ngIf="isLoading; then thenLoading; else elseLoading"></div>
+<ng-template #thenLoading
+  ><app-loading-screen></app-loading-screen
+></ng-template>
+
+<ng-template #elseLoading><p>home-tasks-page works!</p></ng-template>
