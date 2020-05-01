@@ -77,7 +77,7 @@ export const one: tasks = {
 
 export const two: tasks = {
   id: v4(),
-  name: 'first',
+  name: 'two',
   taskCollection: [
     {
       name: 'front-end',
@@ -150,7 +150,7 @@ export const two: tasks = {
 
 export const three: tasks = {
   id: v4(),
-  name: 'first',
+  name: 'three',
   taskCollection: [
     {
       name: 'front-end',

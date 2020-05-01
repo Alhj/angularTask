@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { tasks } from '../../models/apiTask/types';
-
+import { one, two, three } from '../../models/mokTasks/tasks'
 
 @Component({
   selector: 'app-home-tasks-page',
@@ -11,8 +11,12 @@ export class HomeTasksPageComponent implements OnInit {
   constructor() { }
 
   isLoading: boolean = true;
-  
-  userTasks:[tasks]
+
+  userTasks: tasks[] = [
+    one,
+    two,
+    three
+  ]
 
   async ngOnInit(): Promise<void> {
     setTimeout(() => {

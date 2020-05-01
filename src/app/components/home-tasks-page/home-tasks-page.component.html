@@ -3,4 +3,8 @@
   ><app-loading-screen></app-loading-screen
 ></ng-template>
 
-<ng-template #elseLoading><p>home-tasks-page works!</p></ng-template>
+<ng-template #elseLoading>
+  <div *ngFor="let tasks of userTasks">
+    <a routerLink="{{tasks.id}}">{{ tasks.name }}</a>
+  </div>
+</ng-template>

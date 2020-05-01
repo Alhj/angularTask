@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signIn', component: SigninComponent },
   { path: 'signUp', component: SignupComponent },
-  { path: 'tasksHome', component: HomeTasksPageComponent },
-  { path: 'tasks:tasksID', component: TasksComponent },
+  { path: 'tasks', component: HomeTasksPageComponent },
+  { path: 'tasks/:tasksID', component: TasksComponent },
 ];
 
 @NgModule({
