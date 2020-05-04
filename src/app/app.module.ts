@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { StoreModule } from '@ngrx/store';
 
 import { signinReducer } from './reducers/signIn.reducer';
@@ -16,6 +17,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskComponent } from './components/tasks/task/task.component';
 import { HomeTasksPageComponent } from './components/home-tasks-page/home-tasks-page.component';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,15 @@ import { LoadingScreenComponent } from './components/loading-screen/loading-scre
     TasksComponent,
     TaskComponent,
     HomeTasksPageComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     StoreModule.forRoot({signIn: signinReducer}),
+    BrowserAnimationsModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

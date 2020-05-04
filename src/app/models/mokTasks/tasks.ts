@@ -3,7 +3,7 @@ import { v4 } from 'uuid';
 
 
 export const one: tasks = {
-  id: v4(),
+  id: '1',
   name: 'first',
   taskCollection: [
     {
@@ -76,7 +76,7 @@ export const one: tasks = {
 }
 
 export const two: tasks = {
-  id: v4(),
+  id: '2',
   name: 'two',
   taskCollection: [
     {
@@ -149,7 +149,7 @@ export const two: tasks = {
 }
 
 export const three: tasks = {
-  id: v4(),
+  id: '3',
   name: 'three',
   taskCollection: [
     {

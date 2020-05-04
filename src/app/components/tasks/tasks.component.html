@@ -1,5 +1,16 @@
 <div>
-  <div *ngFor="let item of selectedTasks">
-    <app-task></app-task>
+  <div class="example-container" *ngFor="let taskCollection of selectedTasks.taskCollection">
+    <h2>{{ taskCollection.name }}</h2>
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="taskCollection.name"
+      [cdkDropListConnectedTo]="taskCollection.task"
+      class="example-list"
+    >
+      <div class="example-box" *ngFor="let task of taskCollection.task" cdkDrag>
+        <h2>{{ task.name }}</h2>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { taskCollection } from '../../../models/apiTask/types'
 
 @Component({
   selector: 'app-task',
@@ -8,17 +10,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
-
   constructor(private router: ActivatedRoute) { }
 
-  id;
+  @Input('taskCollection') collection
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe(params => {
-      this.id = params.get('tasksID')
-    })
-
-    console.log(this.id)
+    console.log(typeof(this.collection))
   }
 
 }
