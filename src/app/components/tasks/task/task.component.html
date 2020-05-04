@@ -1,1 +1,11 @@
-<p>task works!</p>
+<h2>{{ collection.name }}</h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="collection.task"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let task of collection.task" cdkDrag>
+        {{ task.name }}
+      </div>
+    </div>

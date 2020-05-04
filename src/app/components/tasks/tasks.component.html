@@ -3,16 +3,6 @@
     class="example-container"
     *ngFor="let taskCollection of selectedTasks.taskCollection"
   >
-    <h2>{{ taskCollection.name }}</h2>
-    <div
-      cdkDropList
-      [cdkDropListData]="taskCollection.task"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)"
-    >
-      <div class="example-box" *ngFor="let task of taskCollection.task" cdkDrag>
-        {{ task.name }}
-      </div>
-    </div>
+    <app-task [taskCollection]="taskCollection" ></app-task>
   </div>
 </div>

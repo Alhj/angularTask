@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
 
-import { taskCollection } from '../../../models/apiTask/types'
+import { tasks, taskCollection } from '../../../models/apiTask/types'
 
 @Component({
   selector: 'app-task',
@@ -12,10 +13,21 @@ import { taskCollection } from '../../../models/apiTask/types'
 export class TaskComponent implements OnInit {
   constructor(private router: ActivatedRoute) { }
 
-  @Input('taskCollection') collection
+  @Input('taskCollection') collection: taskCollection
 
   ngOnInit(): void {
-    console.log(typeof(this.collection))
+  }
+
+  drop(event: CdkDragDrop<tasks[]>) {
+    console.log(event.previousContainer + '  ' + event.container)
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 
 }
