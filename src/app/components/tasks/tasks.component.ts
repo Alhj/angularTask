@@ -20,15 +20,26 @@ export class TasksComponent implements OnInit {
 
   selectedTasks: tasks;
 
+
+
   ngOnInit(): void {
     this.router.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('tasksID')
 
       this.selectedTasks = findTasks(this.id)
-
-      console.log(this.selectedTasks)
     })
+  }
 
-
+  drop(event: CdkDragDrop<tasks[]>) {
+    console.log(event.previousContainer + '  ' + event.container)
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      console.log('hello')
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 }

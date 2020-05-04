@@ -1,15 +1,17 @@
-<div>
-  <div class="example-container" *ngFor="let taskCollection of selectedTasks.taskCollection">
+<div cdkDropListGroup>
+  <div
+    class="example-container"
+    *ngFor="let taskCollection of selectedTasks.taskCollection"
+  >
     <h2>{{ taskCollection.name }}</h2>
     <div
       cdkDropList
-      #todoList="cdkDropList"
-      [cdkDropListData]="taskCollection.name"
-      [cdkDropListConnectedTo]="taskCollection.task"
+      [cdkDropListData]="taskCollection.task"
       class="example-list"
+      (cdkDropListDropped)="drop($event)"
     >
       <div class="example-box" *ngFor="let task of taskCollection.task" cdkDrag>
-        <h2>{{ task.name }}</h2>
+        {{ task.name }}
       </div>
     </div>
   </div>
