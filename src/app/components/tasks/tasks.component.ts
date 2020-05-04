@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { findTasks } from '../../helpers/fetchdata/fetchTasksMok';
+
+import { tasks } from '../../models/apiTask/types'
 
 @Component({
   selector: 'app-tasks',
@@ -14,14 +15,17 @@ export class TasksComponent implements OnInit {
 
   constructor(private router: ActivatedRoute) { }
 
-  id;
+  id: string;
+
+  selectedTasks: tasks;
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe(params => {
+    this.router.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('tasksID')
+
+      this.selectedTasks = findTasks(this.id)
     })
 
-    console.log(this.id)
 
   }
 }
