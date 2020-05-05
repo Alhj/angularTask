@@ -12,6 +12,8 @@ export class HomeTasksPageComponent implements OnInit {
 
   isLoading: boolean = true;
 
+  showOverley: boolean = false;
+
   userTasks: tasks[] = [
     one,
     two,
@@ -22,6 +24,14 @@ export class HomeTasksPageComponent implements OnInit {
     setTimeout(() => {
       this.isLoading = false;
     }, 3000)
+  }
+
+  onClick(): void {
+    if (!this.showOverley) {
+      this.showOverley = true;
+    } else { 
+      this.showOverley = false;
+    }
   }
 
 }

@@ -1,10 +1,12 @@
 <div *ngIf="isLoading; then thenLoading; else elseLoading"></div>
-<ng-template #thenLoading
-  ><app-loading-screen></app-loading-screen
-></ng-template>
+<ng-template #thenLoading>
+  <app-loading-screen></app-loading-screen>
+</ng-template>
 
 <ng-template #elseLoading>
+  <button (click)="onClick()">add collection</button>
+  <app-add-collection *ngIf="showOverley"></app-add-collection>
   <div *ngFor="let tasks of userTasks">
-    <a routerLink="{{tasks.id}}">{{ tasks.name }}</a>
+    <a routerLink="{{ tasks.id }}">{{ tasks.name }}</a>
   </div>
 </ng-template>
