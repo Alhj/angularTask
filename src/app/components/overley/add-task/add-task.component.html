@@ -1,3 +1,11 @@
 <div class="overley">
-  <p>add-task works!</p>
+  <div class="overlay_form">
+    <form [formGroup]="addTaskForm">
+    <select>
+      <option *ngFor="let col of collection" value={{col.name}}>{{col.name}}</option>
+    </select>
+
+    <input class="taskInput" type="text" placeholder="taskname ..." formControlName="name"/>
+  </form>
+  </div>
 </div>
