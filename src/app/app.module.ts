@@ -18,6 +18,8 @@ import { TaskComponent } from './components/tasks/task/task.component';
 import { HomeTasksPageComponent } from './components/home-tasks-page/home-tasks-page.component';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddTaskComponent } from './components/overley/add-task/add-task.component';
+import { AddCollectionComponent } from './components/overley/add-collection/add-collection.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TaskComponent,
     HomeTasksPageComponent,
     LoadingScreenComponent,
+    AddTaskComponent,
+    AddCollectionComponent,
   ],
   imports: [
     BrowserModule,

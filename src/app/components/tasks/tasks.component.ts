@@ -15,10 +15,11 @@ export class TasksComponent implements OnInit {
 
 
   constructor(private router: ActivatedRoute) { }
-
   id: string;
 
   selectedTasks: tasks;
+
+  showAddTask: boolean = false;
 
   ngOnInit(): void {
     this.router.paramMap.subscribe((params: ParamMap) => {
@@ -26,5 +27,12 @@ export class TasksComponent implements OnInit {
 
       this.selectedTasks = findTasks(this.id)
     })
+  }
+
+  onClickShow(): void {
+    console.log('hello')
+    if (!this.showAddTask) {
+      this.showAddTask = true
+    }
   }
 }

@@ -5,3 +5,7 @@
   display: inline-block;
   vertical-align: top;
 }
+
+.addTask {
+float: right;
+}

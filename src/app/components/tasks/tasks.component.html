@@ -1,8 +1,27 @@
 <div cdkDropListGroup>
+  <div *ngIf="showAddTask">
+    <app-add-task [taskCollection]="selectedTasks.taskCollection"></app-add-task>
+  </div>
+  <button class="addTask" (click)="onClickShow()">add task</button>
   <div
     class="example-container"
     *ngFor="let taskCollection of selectedTasks.taskCollection"
   >
-    <app-task [taskCollection]="taskCollection" ></app-task>
+    <app-task [taskCollection]="taskCollection"></app-task>
   </div>
 </div>
+
+<ng-template #ifList>
+  <div
+    class="example-container"
+    *ngFor="let taskCollection of selectedTasks.taskCollection"
+  >
+    <app-task [taskCollection]="taskCollection"></app-task>
+  </div>
+</ng-template>
+
+<ng-template #elseList>
+  <div class="example-container">
+    <h2>no item in the list</h2>
+  </div>
+</ng-template>

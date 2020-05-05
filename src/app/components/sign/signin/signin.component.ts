@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { SignInService } from './sign-in.service'
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent {
 
   constructor(
     private route: ActivatedRoute,
@@ -20,9 +19,6 @@ export class SigninComponent implements OnInit {
     email: '',
     password: ''
   })
-
-  ngOnInit(): void {
-  }
 
   onSumbit(coustomData): void {
     this.singInForm.reset()
