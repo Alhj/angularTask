@@ -40,4 +40,9 @@ export class HomeTasksPageComponent implements OnInit {
     }
   }
 
+  addCollection(collection:tasks) {
+    this.userTasks.push(collection)
+    this.showOverley = false
+  }
+
 }
