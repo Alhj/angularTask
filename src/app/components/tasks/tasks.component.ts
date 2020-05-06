@@ -30,9 +30,14 @@ export class TasksComponent implements OnInit {
   }
 
   onClickShow(): void {
-    console.log('hello')
     if (!this.showAddTask) {
       this.showAddTask = true
+    }
+  }
+
+  onClose(close: boolean): void {
+    if (close) {
+      this.showAddTask = false;
     }
   }
 }

@@ -1,11 +1,19 @@
 <div class="overley">
   <div class="overlay_form">
+    <button (click)="onClickClose()">x</button>
     <form [formGroup]="addTaskForm">
-    <select>
-      <option *ngFor="let col of collection" value={{col.name}}>{{col.name}}</option>
-    </select>
+      <select>
+        <option *ngFor="let col of collection" value="{{ col.name }}">{{
+          col.name
+        }}</option>
+      </select>
 
-    <input class="taskInput" type="text" placeholder="taskname ..." formControlName="name"/>
-  </form>
+      <input
+        class="taskInput"
+        type="text"
+        placeholder="taskname ..."
+        formControlName="name"
+      />
+    </form>
   </div>
 </div>

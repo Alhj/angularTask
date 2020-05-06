@@ -34,4 +34,10 @@ export class HomeTasksPageComponent implements OnInit {
     }
   }
 
+  onClose(close:boolean):void {
+    if(close) {
+      this.showOverley = false
+    }
+  }
+
 }
