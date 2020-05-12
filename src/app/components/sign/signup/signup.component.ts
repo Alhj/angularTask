@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+//import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router'
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { emailValidation, passwordLength, comparepass } from '../../../helpers/validation/signUpVali';
@@ -13,7 +14,7 @@ import { SignUpForm } from '../../../models/types/types'
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder, ) {
+  constructor(private router: Router, private fb: FormBuilder, ) {
   }
   message: string = ''
 
@@ -37,8 +38,6 @@ export class SignupComponent implements OnInit {
         
         return;
       }
-      console.log('here');
-  
   }
 
 }
