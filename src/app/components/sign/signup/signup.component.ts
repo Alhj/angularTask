@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-//import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router'
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { emailValidation, passwordLength, comparepass } from '../../../helpers/validation/signUpVali';
+import { signUp } from '../../../helpers/fetchdata/creatAccount'
 import { SignUpForm } from '../../../models/types/types'
 
 
@@ -26,18 +26,29 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSumbit(coustomData: SignUpForm): void {
+  async onSumbit(coustomData: SignUpForm): Promise<void> {
     this.signUpForm.reset();
- 
-      if (!emailValidation(coustomData.email)) {
-        this.message = 'the email is not long enough or not correct'
-        return;
-      }
-      if (passwordLength(coustomData.password)) {
-        this.message = 'the password is not long enough'
-        
-        return;
-      }
+
+    if (!emailValidation(coustomData.email)) {
+      this.message = 'the email is not long enough or not correct'
+      return
+    }
+    if (!passwordLength(coustomData.password)) {
+      this.message = 'the password is not long enough'
+
+      return
+    }
+    if (!comparepass(coustomData.password, coustomData.comparePassword)) {
+      this.message = "password don't match "
+      return
+    }
+    const signUpRes:boolean = await signUp(coustomData)
+    
+    if(signUpRes) {
+    this.router.navigate(['/signIn'])
+    } else {
+      this.message = 'somthing whent wrong'
+    }
   }
 
 }
