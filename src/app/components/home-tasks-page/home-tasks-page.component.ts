@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { tasks } from '../../models/apiTask/types';
 import { one, two, three } from '../../models/mokTasks/tasks'
 
@@ -8,7 +9,7 @@ import { one, two, three } from '../../models/mokTasks/tasks'
   styleUrls: ['./home-tasks-page.component.css']
 })
 export class HomeTasksPageComponent implements OnInit {
-  constructor() { }
+  constructor(private router: Router) { }
 
   isLoading: boolean = true;
 
@@ -21,26 +22,30 @@ export class HomeTasksPageComponent implements OnInit {
   ]
 
   async ngOnInit(): Promise<void> {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000)
+    if(localStorage.getItem('token')){
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 3000)
+    } else {
+      this.router.navigate(['/'])
+    }
   }
 
   onClick(): void {
     if (!this.showOverley) {
       this.showOverley = true;
-    } else { 
+    } else {
       this.showOverley = false;
     }
   }
 
-  onClose(close:boolean):void {
-    if(close) {
+  onClose(close: boolean): void {
+    if (close) {
       this.showOverley = false
     }
   }
 
-  addCollection(collection:tasks) {
+  addCollection(collection: tasks) {
     this.userTasks.push(collection)
     this.showOverley = false
   }

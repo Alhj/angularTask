@@ -15,12 +15,19 @@ export interface IResponsSingIn extends IRespons {
 }
 
 interface IAxiosHeader {
-  authorization:string
-  }
+  authorization: string
+}
 
 export interface IAxios {
   headers: IAxiosHeader
-  data:IResponsSingIn
-  status:number
-  statusText:string
+  data: IResponsSingIn
+  status: number
+  statusText: string
+}
+
+
+export interface IAxiosSignUp {
+  data: IRespons
+  status: number
+  statusText: string
 }

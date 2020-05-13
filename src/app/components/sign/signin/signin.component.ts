@@ -28,7 +28,7 @@ export class SigninComponent {
     const respons: boolean = await singIn(coustomData.email, coustomData.password);
 
     if (respons) {
-      this.route.navigate(['/'])
+      this.route.navigate(['/tasks'])
     }
   }
 
