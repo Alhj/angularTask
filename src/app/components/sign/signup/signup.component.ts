@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store'
 import { Router } from '@angular/router'
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { emailValidation, passwordLength, comparepass } from '../../../helpers/validation/signUpVali';
 import { signUp } from '../../../helpers/fetchdata/creatAccount'
 import { SignUpForm } from '../../../models/types/types'
-
+import { signIn } from '../../../action/signIn.actions'
 
 @Component({
   selector: 'app-signup',
@@ -14,12 +15,16 @@ import { SignUpForm } from '../../../models/types/types'
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, ) {
+  constructor(private router: Router, private fb: FormBuilder, private store: Store<{ signIn: boolean }>) {
   }
+  setSignIn$ = this.store.pipe(select('signIn'));
+
+
   message: string = ''
 
   signUpForm: FormGroup = this.fb.group({
     email: '',
+    name: '',
     password: '',
     comparePassword: '',
   });
@@ -42,10 +47,12 @@ export class SignupComponent implements OnInit {
       this.message = "password don't match "
       return
     }
-    const signUpRes:boolean = await signUp(coustomData)
-    
-    if(signUpRes) {
-    this.router.navigate(['/signIn'])
+    const signUpRes: boolean = await signUp(coustomData)
+
+    if (signUpRes) {
+      this.store.dispatch(signIn())
+      
+      this.router.navigate(['/signIn'])
     } else {
       this.message = 'somthing whent wrong'
     }

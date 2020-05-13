@@ -1,5 +1,6 @@
 export interface SignUpForm {
   email: string
+  name: string
   password: string
   comparePassword: string
 }
