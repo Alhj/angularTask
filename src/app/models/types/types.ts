@@ -13,3 +13,14 @@ export interface IResponsSingIn extends IRespons {
   user: string
   authState: boolean
 }
+
+interface IAxiosHeader {
+  authorization:string
+  }
+
+export interface IAxios {
+  headers: IAxiosHeader
+  data:IResponsSingIn
+  status:number
+  statusText:string
+}

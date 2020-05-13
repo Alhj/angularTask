@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+
+import { singIn } from '../../../helpers/fetchdata/authSignin'
 
 @Component({
   selector: 'app-signin',
@@ -10,7 +12,7 @@ import { FormBuilder } from '@angular/forms';
 export class SigninComponent {
 
   constructor(
-    private route: ActivatedRoute,
+    private route: Router,
     private fb: FormBuilder
   ) {
   }
@@ -20,9 +22,14 @@ export class SigninComponent {
     password: ''
   })
 
-  onSumbit(coustomData): void {
+  async onSumbit(coustomData): Promise<void> {
     this.singInForm.reset()
-    console.warn(coustomData)
+
+    const respons: boolean = await singIn(coustomData.email, coustomData.password);
+
+    if (respons) {
+      this.route.navigate(['/'])
+    }
   }
 
 }
