@@ -5,6 +5,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { StoreModule } from '@ngrx/store';
 
 import { signinReducer } from './reducers/signIn.reducer';
+import { messageReducer } from './reducers/message.reducer'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
@@ -43,7 +44,7 @@ import { SignOutComponent } from './components/sign/sign-out/sign-out.component'
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({signIn: signinReducer}),
+    StoreModule.forRoot({signIn: signinReducer, message: messageReducer}),
     BrowserAnimationsModule,
     DragDropModule,
   ],
