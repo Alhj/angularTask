@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store'
 import { Router } from '@angular/router'
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { emailValidation, passwordLength, comparepass } from '../../../helpers/validation/signUpVali';
 import { signUp } from '../../../helpers/fetchdata/creatAccount'
 import { SignUpForm } from '../../../models/types/types'
-import { signIn } from '../../../action/signIn.actions'
 
 @Component({
   selector: 'app-signup',
@@ -15,11 +13,8 @@ import { signIn } from '../../../action/signIn.actions'
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, private store: Store<{ signIn: boolean }>) {
+  constructor(private router: Router, private fb: FormBuilder) {
   }
-  setSignIn$ = this.store.pipe(select('signIn'));
-
-
   message: string = ''
 
   signUpForm: FormGroup = this.fb.group({
@@ -50,8 +45,7 @@ export class SignupComponent implements OnInit {
     const signUpRes: boolean = await signUp(coustomData)
 
     if (signUpRes) {
-      this.store.dispatch(signIn())
-      
+
       this.router.navigate(['/signIn'])
     } else {
       this.message = 'somthing whent wrong'

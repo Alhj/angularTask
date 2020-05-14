@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { IResponsSingIn, IAxios } from '../../models/types/types'
 
-export const singIn: (email: string, password: string) => Promise<boolean> = async (email: string, password: string) => {
+export const signInReq: (email: string, password: string) => Promise<boolean> = async (email: string, password: string) => {
   const obj = {
     email: email,
     password: password
