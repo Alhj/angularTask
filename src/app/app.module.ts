@@ -20,6 +20,7 @@ import { LoadingScreenComponent } from './components/loading-screen/loading-scre
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddTaskComponent } from './components/overley/add-task/add-task.component';
 import { AddCollectionComponent } from './components/overley/add-collection/add-collection.component';
+import { SignOutComponent } from './components/sign/sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AddCollectionComponent } from './components/overley/add-collection/add-
     LoadingScreenComponent,
     AddTaskComponent,
     AddCollectionComponent,
+    SignOutComponent,
   ],
   imports: [
     BrowserModule,
