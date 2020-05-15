@@ -7,7 +7,7 @@ export const getTask: (id: string) => Promise<tasks> = async (id: string) => {
       authorization: localStorage.getItem('token')
     }
   }
-  const res = await axios.get(`http://localhost:8080/collection/${id}`, conf)
+  const res = await axios.get(`http://localhost:8080/tasks/${id}`, conf)
 
 
   const data = res.data

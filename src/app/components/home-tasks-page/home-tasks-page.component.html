@@ -7,6 +7,6 @@
   <button (click)="onClick()">add collection</button>
   <app-add-collection (addColl)="addCollection($event)" (closeWindow)="onClose($event)" *ngIf="showOverley"></app-add-collection>
   <div *ngFor="let tasks of userTasks">
-    <a routerLink="{{ tasks.id }}">{{ tasks.project }}</a>
+    <a routerLink="{{ tasks._id }}">{{ tasks.project }}</a>
   </div>
 </ng-template>

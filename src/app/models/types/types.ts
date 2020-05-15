@@ -1,4 +1,4 @@
-import { task } from '../apiTask/types'
+import { tasks,task } from '../apiTask/types'
 
 export interface SignUpForm {
   email: string
@@ -47,7 +47,7 @@ export interface IAxiosgetCollections extends IAxios {
 
 interface responsTasks extends IRespons {
   project: string
-  taskCollection: task[]
+  taskCollection: tasks
 }
 
 export interface IAxiosGetTasks extends IAxios {

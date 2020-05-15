@@ -1,5 +1,5 @@
 export interface tasks {
-  id: string
+  _id: string
   project: string
   taskCollection: taskCollection[]
 }
