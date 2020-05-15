@@ -1,3 +1,5 @@
+import { tasks } from '../apiTask/types'
+
 export interface SignUpForm {
   email: string
   name: string
@@ -18,12 +20,14 @@ export interface IResponsSingIn extends IRespons {
 interface IAxiosHeader {
   authorization: string
 }
-
-export interface IAxios {
+ interface IAxios {
   headers: IAxiosHeader
-  data: IResponsSingIn
   status: number
   statusText: string
+}
+
+export interface IAxiosSignIn extends IAxios {
+  data:IResponsSingIn
 }
 
 
@@ -31,4 +35,12 @@ export interface IAxiosSignUp {
   data: IRespons
   status: number
   statusText: string
+}
+
+interface IAxiosCollection extends IRespons {
+  taskCollection: tasks
+}
+
+export interface IAxiosgetCollections extends IAxios { 
+  data: IAxiosCollection
 }

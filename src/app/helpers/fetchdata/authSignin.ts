@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { IResponsSingIn, IAxios } from '../../models/types/types'
+import { IResponsSingIn, IAxiosSignIn } from '../../models/types/types'
 
 export const signInReq: (email: string, password: string) => Promise<boolean> = async (email: string, password: string) => {
   const obj = {
@@ -7,13 +7,13 @@ export const signInReq: (email: string, password: string) => Promise<boolean> = 
     password: password
   }
   try {
-    const signInRes: IAxios  = await axios.post('http://localhost:8080/signIn', obj)
+    const signInRes: IAxiosSignIn  = await axios.post('http://localhost:8080/signIn', obj)
 
     const signIn:IResponsSingIn = signInRes.data
 
-    console.log(signInRes)
-
     localStorage.setItem('token',signInRes.headers.authorization)
+
+    localStorage.setItem('name', signIn.user)
 
     return signIn.authState
   } catch (e) {
