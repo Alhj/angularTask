@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+
+import { getUserTasks } from '../../helpers/fetchdata/fetchTasks'
 import { tasks } from '../../models/apiTask/types';
-import { one, two, three } from '../../models/mokTasks/tasks'
 
 @Component({
   selector: 'app-home-tasks-page',
@@ -15,17 +16,14 @@ export class HomeTasksPageComponent implements OnInit {
 
   showOverley: boolean = false;
 
-  userTasks: tasks[] = [
-    one,
-    two,
-    three
-  ]
+  userTasks: tasks[] = []
 
   async ngOnInit(): Promise<void> {
     if(localStorage.getItem('token')){
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 3000)
+      this.userTasks = await getUserTasks();
+
+      this.isLoading = false;
+
     } else {
       this.router.navigate(['/'])
     }
