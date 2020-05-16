@@ -7,11 +7,8 @@
     </app-add-task>
   </div>
   <button class="addTask" (click)="onClickShow()">add task</button>
-  <div
-    class="example-container"
-    *ngFor="let taskCollection of selectedTasks.taskCollection"
-  >
-    <app-task [taskCollection]="taskCollection"></app-task>
+  <div *ngIf="isCollectionEmpty; then ifList else elseList">
+    
   </div>
 </div>
 

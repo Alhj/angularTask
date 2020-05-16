@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
+//import { findTasks } from '../../helpers/fetchdata/fetchTasksMok';
+import { getTask } from '../../helpers/fetchdata/fetchtask'
 
-import { findTasks } from '../../helpers/fetchdata/fetchTasksMok';
 
 import { tasks } from '../../models/apiTask/types'
 
@@ -21,11 +22,15 @@ export class TasksComponent implements OnInit {
 
   showAddTask: boolean = false;
 
-  ngOnInit(): void {
-    this.router.paramMap.subscribe((params: ParamMap) => {
+  isCollectionEmpty: boolean
+
+  async ngOnInit(): Promise<void> {
+    this.router.paramMap.subscribe(async (params: ParamMap) => {
       this.id = params.get('tasksID')
 
-      this.selectedTasks = findTasks(this.id)
+      this.selectedTasks = await getTask(this.id)
+
+      this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
     })
   }
 
