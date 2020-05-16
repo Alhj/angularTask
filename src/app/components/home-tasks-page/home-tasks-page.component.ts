@@ -45,8 +45,8 @@ export class HomeTasksPageComponent implements OnInit {
     }
   }
 
-  addCollection(collection: tasks) {
-    this.userTasks.push(collection)
+  async addCollection() {
+    this.userTasks = await getUserTasks();
     this.showOverley = false
   }
 

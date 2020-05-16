@@ -2,8 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms'
 
+import { createCollection } from '../../../helpers/fetchdata/collection/createCollection'
+
 import { genereateCollection } from '../../../helpers/create/createCollection';
-import { tasks } from '../../../models/apiTask/types';
+import { ICreateTasks } from '../../../models/apiTask/types';
+
+
+
+interface IFbGruop {
+  name: string
+}
 
 @Component({
   selector: 'app-add-collection',
@@ -29,9 +37,13 @@ export class AddCollectionComponent implements OnInit {
   }
 
 
-  onSubmit(collectionData) {
-    const coll: tasks = genereateCollection(collectionData.name);
+  async onSubmit(collectionData: IFbGruop): Promise<void> {
+    const coll: ICreateTasks = genereateCollection(collectionData.name);
 
-    this.addColl.emit(coll);
+    const resWork: boolean = await createCollection(coll)
+    if (resWork) {
+      this.addColl.emit();
+    }
+
   }
 }

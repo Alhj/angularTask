@@ -1,4 +1,4 @@
-import { tasks,task } from '../apiTask/types'
+import { tasks, task } from '../apiTask/types'
 
 export interface SignUpForm {
   email: string
@@ -24,6 +24,10 @@ interface IAxios {
   headers: IAxiosHeader
   status: number
   statusText: string
+}
+
+export interface IAxiosRoutes extends IAxios {
+  data: IRespons
 }
 
 export interface IAxiosSignIn extends IAxios {

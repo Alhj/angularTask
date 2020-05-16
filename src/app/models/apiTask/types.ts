@@ -14,3 +14,8 @@ export interface task {
   name: string
   description: string
 }
+
+export interface ICreateTasks {
+  projectName: string
+  name: string
+}
