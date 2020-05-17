@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-//import { findTasks } from '../../helpers/fetchdata/fetchTasksMok';
 import { getTask } from '../../helpers/fetchdata/fetchtask'
 
 

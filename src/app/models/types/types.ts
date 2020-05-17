@@ -58,3 +58,10 @@ export interface IAxiosGetTasks extends IAxios {
   data: responsTasks
 }
 
+interface responsUpdate extends IRespons {
+  updated: boolean
+}
+
+export interface IAxiosUppdate extends IAxios {
+  data: responsUpdate
+}
