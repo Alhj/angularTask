@@ -4,7 +4,7 @@ import { FormBuilder } from '@angular/forms'
 
 import { createCollection } from '../../../helpers/fetchdata/collection/createCollection'
 
-import { genereateCollection } from '../../../helpers/create/createCollection';
+import { genereateCollection } from '../../../helpers/create/create';
 import { ICreateTasks } from '../../../models/apiTask/types';
 
 

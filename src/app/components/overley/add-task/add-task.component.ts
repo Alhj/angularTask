@@ -3,9 +3,13 @@ import { EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms'
 import { Input } from '@angular/core'
 
-import { v4 } from 'uuid';
+import { task, taskCollection } from '../../../models/apiTask/types'
 
-import { tasks, taskCollection } from '../../../models/apiTask/types'
+interface IFbGruop {
+  twoCollection: string
+  name: string
+  description: string
+}
 
 @Component({
   selector: 'app-add-task',
@@ -15,8 +19,11 @@ import { tasks, taskCollection } from '../../../models/apiTask/types'
 export class AddTaskComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
-  @Input('taskCollection') collection: taskCollection;
+  @Input('taskCollection') collection: taskCollection[]
+  @Input('id') id: string
   @Output() closeWindow: EventEmitter<boolean> = new EventEmitter()
+
+  addCollection: boolean;
 
   addTaskForm = this.fb.group({
     twoCollection: '',
@@ -25,10 +32,13 @@ export class AddTaskComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.addCollection = this.collection.length > 0
   }
 
-  onClickClose() {
+  onClickClose(): void {
     this.closeWindow.emit(true);
   }
+  async onSubmit(): Promise<void> {
 
+  }
 }

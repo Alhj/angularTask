@@ -2,12 +2,7 @@
   <div class="overlay_form">
     <button (click)="onClickClose()">x</button>
     <form [formGroup]="addTaskForm">
-      <select>
-        <option *ngFor="let col of collection" value="{{ col.name }}">{{
-          col.name
-        }}</option>
-      </select>
-
+      <div *ngIf="addCollection; then thenTemp; else elseTemp"></div>
       <input
         class="taskInput"
         type="text"
@@ -17,3 +12,17 @@
     </form>
   </div>
 </div>
+
+<ng-template #thenTemp>
+  <select formControlName="twoCollection">
+    <option *ngFor="let col of collection" value="{{ col.name }}">{{
+      col.name
+    }}</option>
+  </select>
+</ng-template>
+
+<ng-template #elseTemp>
+  <div [formGroup]="addTaskForm">
+    <input type="text" formControlName="twoCollection" />
+  </div>
+</ng-template>
