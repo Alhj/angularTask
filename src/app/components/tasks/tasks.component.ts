@@ -39,8 +39,10 @@ export class TasksComponent implements OnInit {
     }
   }
 
-  onClose(close: boolean): void {
+  async onClose(close: boolean): Promise<void> {
     if (close) {
+      this.selectedTasks = await getTask(this.id)
+
       this.showAddTask = false;
     }
   }

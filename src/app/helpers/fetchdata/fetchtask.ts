@@ -24,8 +24,10 @@ export const updateTask: (collection: createTask) => Promise<boolean> = async (c
 
   const update: tasks = await getTask(collection.id);
 
+  console.log(collection.name)
+
   update.taskCollection.forEach(task => {
-    if (task.name === collection.name) {
+    if (task.name.toLowerCase() === collection.name.toLowerCase()) {
       task.task.push(collection.task)
       findCollection = true
     }
