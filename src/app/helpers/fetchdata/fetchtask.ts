@@ -48,5 +48,7 @@ export const updateTask: (collection: createTask) => Promise<boolean> = async (c
 
   const res: IAxiosUppdate = await axios.put(`http://localhost:8080/collection/tasks/${collection.id}`, update, config)
 
+  console.log(res)
+
   return res.data.updated
 }

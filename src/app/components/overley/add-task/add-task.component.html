@@ -1,7 +1,7 @@
 <div class="overley">
   <div class="overlay_form">
     <button (click)="onClickClose()">x</button>
-    <form [formGroup]="addTaskForm">
+    <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
       <div *ngIf="addCollection; then thenTemp; else elseTemp"></div>
       <input
         class="taskInput"

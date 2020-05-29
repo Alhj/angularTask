@@ -50,6 +50,7 @@ export class AddTaskComponent implements OnInit {
       name: taskData.twoCollection,
       task: task
     }
+
     const addTask: boolean = await updateTask(data);
 
     if (addTask) {
