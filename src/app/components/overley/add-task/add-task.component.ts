@@ -43,7 +43,7 @@ export class AddTaskComponent implements OnInit {
     this.closeWindow.emit(true);
   }
   async onSubmit(taskData: IFbGruop): Promise<void> {
-  
+
     const task: task = genereateTasks(taskData.name);
 
     const data: createTask = {
@@ -52,9 +52,6 @@ export class AddTaskComponent implements OnInit {
       task: task
     }
 
-    console.log(data)
-
-  
     const addTask: boolean = await updateTask(data);
 
     if (addTask) {
