@@ -11,7 +11,8 @@ export const genereateCollection: (name: string) => ICreateTasks = (name: string
 }
 
 
-export const genereateTasks: (name: string) => task = () => {
+export const genereateTasks: (name: string) => task = (name:string) => {
+
   const newTask: task = {
     id: v4(),
     name: name,

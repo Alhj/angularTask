@@ -15,11 +15,13 @@
 </div>
 
 <ng-template #thenTemp>
+  <div [formGroup]="addTaskForm">
   <select formControlName="twoCollection">
     <option *ngFor="let col of collection" value="{{ col.name }}">{{
       col.name
     }}</option>
   </select>
+</div>
 </ng-template>
 
 <ng-template #elseTemp>
