@@ -19,3 +19,8 @@ export interface ICreateTasks {
   projectName: string
   name: string
 }
+
+export interface updateTask {
+  _id: string
+  taskCollection: taskCollection[]
+}

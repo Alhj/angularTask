@@ -18,7 +18,7 @@
     class="example-container"
     *ngFor="let taskCollection of selectedTasks.taskCollection"
   >
-    <app-task [taskCollection]="taskCollection"></app-task>
+    <app-task (updateCollection)="onUpdate()" [taskCollection]="taskCollection"></app-task>
   </div>
 </ng-template>
 

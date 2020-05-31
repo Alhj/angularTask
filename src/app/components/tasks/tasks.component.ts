@@ -46,4 +46,8 @@ export class TasksComponent implements OnInit {
       this.showAddTask = false;
     }
   }
+
+  async onUpdate(): Promise<void> {
+    
+  }
 }
