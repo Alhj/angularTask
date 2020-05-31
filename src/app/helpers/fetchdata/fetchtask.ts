@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import { tasks, taskCollection } from '../../models/apiTask/types'
+
+import { tasks, taskCollection, IUpdateTask } from '../../models/apiTask/types'
 import { IAxiosGetTasks, IAxiosUppdate } from '../../models/types/types'
 import { createTask } from '../../models/types/createTypes'
 
@@ -51,9 +52,21 @@ export const updateTask: (collection: createTask) => Promise<boolean> = async (c
   return res.data.updated
 }
 
+export const changeCollection: (tasks: tasks, id: string) => Promise<void> = async (tasks: tasks, id: string) => {
 
-export const changeCollection: (tasks:tasks, id:string) => Promise<void> = async (tasks:tasks, id:string) => {
+  const body: IUpdateTask = {
+    _id: id,
+    tasks: tasks
+  }
 
-  const h = 0;
+  const config: AxiosRequestConfig = {
+    headers: {
+      authorization: localStorage.getItem('token')
+    }
+  }
+
+  const res: IAxiosUppdate = await axios.put(`http://localhost:8080/collection/tasks/move/${id}`, body, config)
+
+  console.log(res)
 
 }

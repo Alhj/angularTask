@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { getTask } from '../../helpers/fetchdata/fetchtask'
-
+import { getTask, changeCollection } from '../../helpers/fetchdata/fetchtask'
 
 import { tasks } from '../../models/apiTask/types'
 
@@ -48,6 +47,6 @@ export class TasksComponent implements OnInit {
   }
 
   async onUpdate(): Promise<void> {
-    
+    changeCollection(this.selectedTasks, this.id)
   }
 }

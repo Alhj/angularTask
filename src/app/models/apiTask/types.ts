@@ -20,7 +20,7 @@ export interface ICreateTasks {
   name: string
 }
 
-export interface updateTask {
+export interface IUpdateTask {
   _id: string
-  taskCollection: taskCollection[]
+  tasks:tasks
 }
