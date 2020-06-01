@@ -20,18 +20,22 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  drop(event: CdkDragDrop<tasks[]>) {
+  drop(event: CdkDragDrop<tasks[]>): void {
     console.log(event.previousContainer + '  ' + event.container)
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      this.update.emit();
+      console.log('move')
+      //this.update.emit();
     } else {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
-        this.update.emit();
     }
+  }
+
+  delete(): void {
+  
   }
 
 }

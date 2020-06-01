@@ -46,6 +46,10 @@ export class TasksComponent implements OnInit {
     }
   }
 
+  onAdd(): void {
+    this.showAddTask = true
+  }
+
   async onUpdate(): Promise<void> {
     changeCollection(this.selectedTasks, this.id)
   }

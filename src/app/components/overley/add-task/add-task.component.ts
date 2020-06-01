@@ -39,6 +39,11 @@ export class AddTaskComponent implements OnInit {
     this.addCollection = this.collection.length > 0
   }
 
+
+  onAddCollection(): void {
+    this.addCollection = false;
+  }
+
   onClickClose(): void {
     this.closeWindow.emit(true);
   }
