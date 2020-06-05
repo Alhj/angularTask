@@ -8,9 +8,7 @@
     </app-add-task>
   </div>
   <button class="addTask" (click)="onClickShow()">add task</button>
-  <div *ngIf="isCollectionEmpty; then ifList else elseList">
-    
-  </div>
+  <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
 </div>
 
 <ng-template #ifList>
@@ -18,7 +16,11 @@
     class="example-container"
     *ngFor="let taskCollection of selectedTasks.taskCollection"
   >
-    <app-task (updateCollection)="onUpdate()" [taskCollection]="taskCollection"></app-task>
+    <app-task
+      (updateCollection)="onUpdate()"
+      (dealteCollection)="onDelate($event)"
+      [taskCollection]="taskCollection"
+    ></app-task>
   </div>
 </ng-template>
 

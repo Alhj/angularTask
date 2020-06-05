@@ -4,7 +4,7 @@ import { FormBuilder } from '@angular/forms'
 import { Input } from '@angular/core'
 
 import { genereateTasks } from '../../../helpers/create/create'
-import { updateTask } from '../../../helpers/fetchdata/fetchtask'
+import { createNewTask } from '../../../helpers/fetchdata/fetchtask'
 
 import { task, taskCollection } from '../../../models/apiTask/types'
 import { createTask } from '../../../models/types/createTypes'
@@ -57,7 +57,7 @@ export class AddTaskComponent implements OnInit {
       task: task
     }
 
-    const addTask: boolean = await updateTask(data);
+    const addTask: boolean = await createNewTask(data);
 
     if (addTask) {
       this.closeWindow.emit(true);

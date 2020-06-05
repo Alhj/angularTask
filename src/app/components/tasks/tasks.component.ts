@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { getTask, changeCollection } from '../../helpers/fetchdata/fetchtask'
+import { delateCollection } from '../../helpers/fetchdata/fetchtask'
 
 import { tasks } from '../../models/apiTask/types'
 
@@ -52,5 +53,11 @@ export class TasksComponent implements OnInit {
 
   async onUpdate(): Promise<void> {
     changeCollection(this.selectedTasks, this.id)
+  }
+
+  async onDelate(name:string): Promise<void> {
+    await delateCollection(this.id, name)
+    
+    this.selectedTasks = await getTask(this.id)
   }
 }

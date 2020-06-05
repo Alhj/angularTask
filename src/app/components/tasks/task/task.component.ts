@@ -15,7 +15,8 @@ export class TaskComponent implements OnInit {
   constructor(private router: ActivatedRoute) { }
 
   @Input('taskCollection') collection: taskCollection
-  @Output('updateCollection') update: EventEmitter<void> = new EventEmitter();
+  @Output('updateCollection') update: EventEmitter<void> = new EventEmitter()
+  @Output('dealteCollection') delate: EventEmitter<string> = new EventEmitter()
 
   ngOnInit(): void {
   }
@@ -35,7 +36,7 @@ export class TaskComponent implements OnInit {
   }
 
   delete(): void {
-  
+    this.delate.emit(this.collection.name)
   }
 
 }
