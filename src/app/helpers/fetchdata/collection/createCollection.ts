@@ -9,7 +9,7 @@ export const createCollection: (collection: ICreateTasks) => Promise<boolean> = 
       authorization: localStorage.getItem('token')
     }
   }
-    console.log(collection)
+  
   const res: IAxiosRoutes = await axios.post('http://localhost:8080/collection/', collection, config)
 
   if (res.data.statusCode === 201) {
@@ -17,4 +17,18 @@ export const createCollection: (collection: ICreateTasks) => Promise<boolean> = 
   } else {
     return false;
   }
+}
+
+
+export const dealteCollection: (id: string, collectionId: string) => Promise<boolean> = async (id, collectionId) => {
+  
+  const config: AxiosRequestConfig = {
+    headers: {
+      authorization: localStorage.getItem('token')
+    }
+  }
+
+  const res = await axios.delete('', config)
+  
+  return false
 }

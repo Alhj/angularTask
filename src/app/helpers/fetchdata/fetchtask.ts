@@ -12,7 +12,7 @@ export const getTask: (id: string) => Promise<tasks> = async (id: string) => {
   }
 
 
-  const res: IAxiosGetTasks = await axios.get(`http://localhost:8080/collection/tasks/${id}`, conf)
+  const res: IAxiosGetTasks = await axios.get(`http://localhost:8080/collection/${id}`, conf)
 
   const data = res.data
 
@@ -47,7 +47,7 @@ export const updateTask: (collection: createTask) => Promise<boolean> = async (c
     }
   }
 
-  const res: IAxiosUppdate = await axios.put(`http://localhost:8080/collection/tasks/${collection.id}`, update, config)
+  const res: IAxiosUppdate = await axios.post(`http://localhost:8080/collection/tasks/${collection.id}`, update, config)
 
   return res.data.updated
 }
@@ -68,5 +68,4 @@ export const changeCollection: (tasks: tasks, id: string) => Promise<void> = asy
   const res: IAxiosUppdate = await axios.put(`http://localhost:8080/collection/tasks/move/${id}`, body, config)
 
   console.log(res)
-
 }

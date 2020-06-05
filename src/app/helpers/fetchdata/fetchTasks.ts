@@ -12,7 +12,7 @@ export const getUserTasks: () => Promise<tasks[]> = async () => {
     }
   }
   
-  const res: IAxiosgetCollections = await axios.get(`http://localhost:8080/collection/${name}`, config);
+  const res: IAxiosgetCollections = await axios.get(`http://localhost:8080/collection/?name=${name}`, config);
 
   console.log(res.data.taskCollection)
 
