@@ -55,9 +55,9 @@ export class TasksComponent implements OnInit {
     changeCollection(this.selectedTasks, this.id)
   }
 
-  async onDelate(name:string): Promise<void> {
+  async onDelate(name: string): Promise<void> {
     await delateCollection(this.id, name)
-    
+
     this.selectedTasks = await getTask(this.id)
   }
 }

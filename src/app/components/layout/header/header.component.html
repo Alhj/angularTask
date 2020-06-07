@@ -1,13 +1,20 @@
 <header>
   <div>
+    <a routerLink="/">Home</a>
   </div>
-  <nav>
-    <ul>
-      <li *ngIf="isSignIn | async; then thenblock; else elseblock"></li>
-      <ng-template #thenblock
-        ><a routerLink="/signOut">sign out</a></ng-template
-      >
-      <ng-template #elseblock><a routerLink="/signIn">sign in</a></ng-template>
-    </ul>
+  <nav  *ngIf="isSignIn | async; then thenblock; else elseblock">
   </nav>
 </header>
+
+<ng-template #thenblock>
+  <ul>
+    <li><a routerLink="tasks">tasks</a></li>
+    <li><a routerLink="/signOut">sign out</a></li>
+  </ul>
+</ng-template>
+
+<ng-template #elseblock>
+  <ul>
+    <li><a routerLink="/signIn">sign in</a></li>
+  </ul>
+</ng-template>
