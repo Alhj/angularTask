@@ -2,8 +2,7 @@
   <div>
     <a routerLink="/">Home</a>
   </div>
-  <nav  *ngIf="isSignIn | async; then thenblock; else elseblock">
-  </nav>
+  <nav *ngIf="isSignIn | async; then thenblock; else elseblock"></nav>
 </header>
 
 <ng-template #thenblock>

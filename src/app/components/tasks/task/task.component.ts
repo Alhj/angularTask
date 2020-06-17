@@ -25,13 +25,14 @@ export class TaskComponent implements OnInit {
     console.log(event.previousContainer + '  ' + event.container)
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      console.log('move')
-      //this.update.emit();
+
+      this.update.emit();
     } else {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
+      this.update.emit();
     }
   }
 

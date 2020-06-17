@@ -12,6 +12,7 @@
 </div>
 
 <ng-template #ifList>
+  <div cdkDropListGroup>
   <div
     class="example-container"
     *ngFor="let taskCollection of selectedTasks.taskCollection"
@@ -21,6 +22,7 @@
       (dealteCollection)="onDelate($event)"
       [taskCollection]="taskCollection"
     ></app-task>
+  </div>
   </div>
 </ng-template>
 

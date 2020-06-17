@@ -8,7 +8,12 @@
   class="example-list"
   (cdkDropListDropped)="drop($event)"
 >
-  <div class="example-box" *ngFor="let task of collection.task" cdkDrag>
+  <div
+    class="example-box"
+    *ngFor="let task of collection.task"
+    cdkDrag
+    [cdkDragData]="task"
+  >
     {{ task.name }}
   </div>
 </div>

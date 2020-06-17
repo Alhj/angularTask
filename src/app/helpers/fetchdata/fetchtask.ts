@@ -65,7 +65,7 @@ export const changeCollection: (tasks: tasks, id: string) => Promise<void> = asy
     }
   }
 
-  const res: IAxiosUppdate = await axios.put(`http://localhost:8080/collection/tasks/move/${id}`, body, config)
+  const res: IAxiosUppdate = await axios.put(`http://localhost:8080/collection/tasks/task/${id}`, body, config)
 
   console.log(res)
 }
