@@ -22,8 +22,6 @@ export class HomeTasksPageComponent implements OnInit {
     if(localStorage.getItem('token')){
       this.userTasks = await getUserTasks();
 
-      console.log(this.userTasks)
-
       this.isLoading = false;
 
     } else {

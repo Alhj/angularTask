@@ -65,12 +65,11 @@ export const changeCollection: (tasks: tasks, id: string) => Promise<void> = asy
     }
   }
 
-  const res: IAxiosUppdate = await axios.put(`http://localhost:8080/collection/tasks/task/${id}`, body, config)
+  await axios.put(`http://localhost:8080/collection/tasks/task/${id}`, body, config)
 
-  console.log(res)
 }
 
-export const delateCollection: (id: string, name:string) => Promise<void> = async (id:string, name:string) => {
+export const delateCollection: (id: string, name: string) => Promise<void> = async (id: string, name: string) => {
   const config: AxiosRequestConfig = {
     headers: {
       authorization: localStorage.getItem('token')

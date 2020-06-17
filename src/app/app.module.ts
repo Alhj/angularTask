@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { StoreModule } from '@ngrx/store';
-import { TooltipModule } from 'ngx-bootstrap/tooltip'
 
 import { signinReducer } from './reducers/signIn.reducer';
 import { messageReducer } from './reducers/message.reducer'
@@ -47,7 +46,6 @@ import { SignOutComponent } from './components/sign/sign-out/sign-out.component'
     ReactiveFormsModule,
     StoreModule.forRoot({signIn: signinReducer, message: messageReducer}),
     BrowserAnimationsModule,
-    TooltipModule.forRoot(),
     DragDropModule,
   ],
   providers: [],
