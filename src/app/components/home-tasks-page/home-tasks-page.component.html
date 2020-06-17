@@ -5,8 +5,17 @@
 
 <ng-template #elseLoading>
   <button (click)="onClick()">add collection</button>
-  <app-add-collection (addColl)="addCollection()" (closeWindow)="onClose($event)" *ngIf="showOverley"></app-add-collection>
-  <div *ngFor="let tasks of userTasks">
-    <a routerLink="{{ tasks._id }}">{{ tasks.project }}</a>
+  <app-add-collection
+    (addColl)="addCollection()"
+    (closeWindow)="onClose($event)"
+    *ngIf="showOverley"
+  ></app-add-collection>
+
+  <div class="container d-flex justify-content-between flex-wrap">
+    <div class="card p-4" *ngFor="let tasks of userTasks">
+      <div class="card-body">
+        <a routerLink="{{ tasks._id }}">{{ tasks.project }}</a>
+      </div>
+    </div>
   </div>
 </ng-template>

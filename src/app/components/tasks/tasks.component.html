@@ -1,4 +1,4 @@
-<div cdkDropListGroup>
+<div>
   <div *ngIf="showAddTask">
     <app-add-task
       (closeWindow)="onClose($event)"
@@ -7,7 +7,7 @@
     >
     </app-add-task>
   </div>
-  <button class="addTask" (click)="onClickShow()">add task</button>
+  <button class=" m-2 addTask btn btn-light" (click)="onClickShow()">add task</button>
   <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
 </div>
 
