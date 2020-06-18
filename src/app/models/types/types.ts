@@ -65,3 +65,8 @@ interface responsUpdate extends IRespons {
 export interface IAxiosUppdate extends IAxios {
   data: responsUpdate
 }
+
+export interface ICollectionInfo {
+  _id:string
+  project:string
+}

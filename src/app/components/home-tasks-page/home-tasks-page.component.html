@@ -1,4 +1,5 @@
 <div *ngIf="isLoading; then thenLoading; else elseLoading"></div>
+
 <ng-template #thenLoading>
   <app-loading-screen></app-loading-screen>
 </ng-template>
@@ -13,9 +14,7 @@
 
   <div class="container d-flex justify-content-between flex-wrap">
     <div class="card p-4" *ngFor="let tasks of userTasks">
-      <div class="card-body">
-        <a routerLink="{{ tasks._id }}">{{ tasks.project }}</a>
-      </div>
+      <app-links ></app-links>
     </div>
   </div>
 </ng-template>

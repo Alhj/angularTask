@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Input, Output } from '@angular/core'
+import { EventEmitter } from '@angular/core'
+
+import { ICollectionInfo } from '../../../models/types/types'
 
 @Component({
   selector: 'app-delate-sure',
@@ -6,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delate-sure.component.css']
 })
 export class DelateSureComponent implements OnInit {
+  @Input('CollectionInfo') collectionInfo : ICollectionInfo
 
+  
   constructor() { }
 
   ngOnInit(): void {

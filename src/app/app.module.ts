@@ -23,6 +23,8 @@ import { AddTaskComponent } from './components/overley/add-task/add-task.compone
 import { AddCollectionComponent } from './components/overley/add-collection/add-collection.component';
 import { SignOutComponent } from './components/sign/sign-out/sign-out.component';
 import { DelateSureComponent } from './components/overley/delate-sure/delate-sure.component';
+import { EditTaskComponent } from './components/overley/edit-task/edit-task.component';
+import { LinksComponent } from './components/home-tasks-page/links/links.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { DelateSureComponent } from './components/overley/delate-sure/delate-sur
     AddCollectionComponent,
     SignOutComponent,
     DelateSureComponent,
+    EditTaskComponent,
+    LinksComponent,
   ],
   imports: [
     BrowserModule,
