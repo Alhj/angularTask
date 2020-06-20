@@ -11,10 +11,15 @@
     (closeWindow)="onClose($event)"
     *ngIf="showOverley"
   ></app-add-collection>
+  <app-delate-sure
+    (CollectionInfo)="(CollectionInfo)"
+    *ngIf="showDealteOverlay"
+  >
+  </app-delate-sure>
 
   <div class="container d-flex justify-content-between flex-wrap">
     <div class="card p-4" *ngFor="let tasks of userTasks">
-      <app-links ></app-links>
+      <app-links (dealteOverlay)="onDealteClick($event)" [tasks]="tasks"></app-links>
     </div>
   </div>
 </ng-template>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 
 import { getUserTasks } from '../../helpers/fetchdata/fetchTasks'
 import { tasks } from '../../models/apiTask/types';
+import { ICollectionInfo } from '../../models/types/types'
 
 @Component({
   selector: 'app-home-tasks-page',
@@ -12,14 +13,18 @@ import { tasks } from '../../models/apiTask/types';
 export class HomeTasksPageComponent implements OnInit {
   constructor(private router: Router) { }
 
-  isLoading: boolean = true;
+  isLoading: boolean = true
 
-  showOverley: boolean = false;
+  showOverley: boolean = false
+
+  showDealteOverlay: Boolean = false
 
   userTasks: tasks[] = []
 
+  CollectionInfo: ICollectionInfo
+
   async ngOnInit(): Promise<void> {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       this.userTasks = await getUserTasks();
 
       this.isLoading = false;
@@ -40,7 +45,17 @@ export class HomeTasksPageComponent implements OnInit {
   onClose(close: boolean): void {
     if (close) {
       this.showOverley = false
+      this.showDealteOverlay = false
     }
+  }
+
+  onDealteClick(event:ICollectionInfo) {
+    this.CollectionInfo = event
+    this.showDealteOverlay = true
+  }
+
+  async onDealteCollection() {
+
   }
 
   async addCollection() {
