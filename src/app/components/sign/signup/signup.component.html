@@ -4,8 +4,8 @@
     [formGroup]="signUpForm"
     (ngSubmit)="onSumbit(signUpForm.value)"
   >
-    <input type="text" formControlName="email" placeholder="email..."/>
-    <input type="text" formControlName="name" placeholder="username"/>
+    <input class="form-control" type="text" formControlName="email" placeholder="email..."/>
+    <input class="form-control" type="text" formControlName="name" placeholder="username"/>
     <input
       type="password"
       formControlName="password"
@@ -16,6 +16,6 @@
       formControlName="comparePassword"
       placeholder="compare password ..."
     />
-    <input type="submit" value="sign up"/>
+    <input class="btn btn-secondary" type="submit" value="sign up"/>
   </form>
 </div>

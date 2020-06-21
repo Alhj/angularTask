@@ -1,14 +1,14 @@
 <div class="overley">
   <div class="overlay_form">
     <p>hello</p>
-    <button (click)="onClickClose()">x</button>
+    <button class="btn btn-secondary" (click)="onClickClose()">back</button>
     <form
       [formGroup]="addCollectionForm"
       (ngSubmit)="onSubmit(addCollectionForm.value)"
     >
       <input type="text" formControlName="name" placeholder="collection name" />
 
-      <input type="submit" value="add collection"/>
+      <input class="btn btn-secondary" type="submit" value="add collection"/>
     </form>
   </div>
 </div>

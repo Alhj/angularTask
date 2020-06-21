@@ -5,7 +5,7 @@
 </ng-template>
 
 <ng-template #elseLoading>
-  <button (click)="onClick()">add collection</button>
+  <button class="btn btn-secondary" (click)="onClick()">add collection</button>
   <app-add-collection
     (addColl)="updateCollection()"
     (closeWindow)="onClose($event)"

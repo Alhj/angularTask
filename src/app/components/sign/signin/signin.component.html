@@ -1,6 +1,34 @@
-<form [formGroup]="singInForm" (ngSubmit)="onSumbit(singInForm.value)">
-  <p>hello world 1</p>
-  <input type="text" formControlName="email"/>
-  <input type="password" formControlName="password"/>
-  <input type="submit" value="sign in"/>
-</form>
+<div class="container ">
+  <div class="row d-flex justify-content-center">
+    <div class="card col-md-6">
+      <article class="card-body">
+        <form [formGroup]="singInForm" (ngSubmit)="onSumbit(singInForm.value)">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="email"
+              placeholder="email"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="password"
+              formControlName="password"
+              placeholder="password"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="btn btn-secondary btn-block"
+              type="submit"
+              value="sign in"
+            />
+          </div>
+        </form>
+      </article>
+    </div>
+  </div>
+</div>
