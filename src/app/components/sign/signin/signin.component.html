@@ -1,9 +1,9 @@
-<div class="container ">
+<div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="card col-md-6">
+    <div class="card col-md-4">
       <article class="card-body">
         <form [formGroup]="singInForm" (ngSubmit)="onSumbit(singInForm.value)">
-          <div class="form-group">
+          <div class="form-group text-center">
             <label>Email</label>
             <input
               class="form-control"
@@ -12,7 +12,8 @@
               placeholder="email"
             />
           </div>
-          <div class="form-group">
+          <div class="form-group text-center">
+            <label>Password</label>
             <input
               class="form-control"
               type="password"
@@ -20,12 +21,15 @@
               placeholder="password"
             />
           </div>
-          <div class="form-group">
+          <div class="form-group text-center">
             <input
               class="btn btn-secondary btn-block"
               type="submit"
               value="sign in"
             />
+          </div>
+          <div class="form-group text-center">
+            <a routerLink="/signUp">don't have a account</a>
           </div>
         </form>
       </article>
