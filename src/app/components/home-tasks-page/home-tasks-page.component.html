@@ -7,12 +7,14 @@
 <ng-template #elseLoading>
   <button (click)="onClick()">add collection</button>
   <app-add-collection
-    (addColl)="addCollection()"
+    (addColl)="updateCollection()"
     (closeWindow)="onClose($event)"
     *ngIf="showOverley"
   ></app-add-collection>
   <app-delate-sure
-    (CollectionInfo)="(CollectionInfo)"
+    (close)="onClose($event)"
+    (dealte)="updateCollection()"
+    [CollectionInfo]="(collectionInfo)"
     *ngIf="showDealteOverlay"
   >
   </app-delate-sure>

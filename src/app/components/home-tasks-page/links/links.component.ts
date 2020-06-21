@@ -12,14 +12,12 @@ import { ICollectionInfo } from '../../../models/types/types'
 export class LinksComponent implements OnInit {
   @Input("tasks") tasks: ICollectionInfo
   @Output("dealteOverlay") delate: EventEmitter<ICollectionInfo> = new EventEmitter();
-
-  constructor() { }
-
   ngOnInit(): void {
   }
 
   onDealte(): void 
   { 
+
     this.delate.emit(this.tasks)
   }
 

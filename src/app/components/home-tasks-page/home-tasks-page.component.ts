@@ -21,7 +21,10 @@ export class HomeTasksPageComponent implements OnInit {
 
   userTasks: tasks[] = []
 
-  CollectionInfo: ICollectionInfo
+  collectionInfo: ICollectionInfo = {
+    _id:'1',
+    project: 'hello'
+  }
 
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('token')) {
@@ -50,7 +53,10 @@ export class HomeTasksPageComponent implements OnInit {
   }
 
   onDealteClick(event:ICollectionInfo) {
-    this.CollectionInfo = event
+    this.collectionInfo = event
+
+    console.log(this.collectionInfo)
+
     this.showDealteOverlay = true
   }
 
@@ -58,9 +64,10 @@ export class HomeTasksPageComponent implements OnInit {
 
   }
 
-  async addCollection() {
+  async updateCollection() {
     this.userTasks = await getUserTasks();
     this.showOverley = false
+    this.showDealteOverlay = false
   }
 
 }
