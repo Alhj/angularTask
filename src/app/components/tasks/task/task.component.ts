@@ -18,6 +18,10 @@ export class TaskComponent implements OnInit {
   @Output('updateCollection') update: EventEmitter<void> = new EventEmitter()
   @Output('dealteCollection') delate: EventEmitter<string> = new EventEmitter()
 
+  showEdit:boolean = false
+  tasks: tasks
+
+
   ngOnInit(): void {
   }
 
@@ -38,6 +42,10 @@ export class TaskComponent implements OnInit {
 
   delete(): void {
     this.delate.emit(this.collection.name)
+  }
+
+  edit(id:string): void {
+    this.showEdit = true
   }
 
 }

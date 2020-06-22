@@ -1,14 +1,16 @@
 <div class="overley">
   <div class="overlay_form">
-    <div>
+    <div class="text-center">
       <p>
         are you sure you whant to dealte
         <mark>{{ collectionInfo.project }}</mark>
       </p>
-        <button class="btn btn-danger" (click)="onDealte()">dealte</button>
+      <div>
+        <button class="btn btn-danger margin-right" (click)="onDealte()">dealte</button>
         <button class="btn btn-secondary" (click)="onClick()">
           cancel dealte
         </button>
+      </div>
     </div>
   </div>
 </div>
