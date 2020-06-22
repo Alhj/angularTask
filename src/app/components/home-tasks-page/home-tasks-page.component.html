@@ -5,7 +5,11 @@
 </ng-template>
 
 <ng-template #elseLoading>
-  <button class="btn btn-secondary" (click)="onClick()">add collection</button>
+  <span class="container">
+    <button class="btn btn-secondary" (click)="onClick()">
+      add collection
+    </button>
+  </span>
   <app-add-collection
     (addColl)="updateCollection()"
     (closeWindow)="onClose($event)"
@@ -14,14 +18,17 @@
   <app-delate-sure
     (close)="onClose($event)"
     (dealte)="updateCollection()"
-    [CollectionInfo]="(collectionInfo)"
+    [CollectionInfo]="collectionInfo"
     *ngIf="showDealteOverlay"
   >
   </app-delate-sure>
 
   <div class="container d-flex justify-content-between flex-wrap">
-    <div class="card p-4" *ngFor="let tasks of userTasks">
-      <app-links (dealteOverlay)="onDealteClick($event)" [tasks]="tasks"></app-links>
+      <div class="card p-4" *ngFor="let tasks of userTasks">
+        <app-links
+          (dealteOverlay)="onDealteClick($event)"
+          [tasks]="tasks"
+        ></app-links>
+      </div>
     </div>
-  </div>
 </ng-template>
