@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Input } from '@angular/core'
-import { Output, EventEmitter} from '@angular/core'
+import { Output, EventEmitter } from '@angular/core'
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 import { task } from 'src/app/models/apiTask/types'
 
@@ -11,14 +12,20 @@ import { task } from 'src/app/models/apiTask/types'
 })
 export class EditTaskComponent {
 
-  @Output('closeClick') close : EventEmitter<boolean> = new EventEmitter()
+  @Output('closeClick') close: EventEmitter<boolean> = new EventEmitter()
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   @Input('taskInfo') taskInfo: task
 
+
+  editForm:FormGroup = this.fb.group({
+    name: '',
+    description: ''
+  })
+
   onClose() {
     this.close.emit(true)
-  }  
+  }
 
 }

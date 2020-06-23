@@ -9,7 +9,6 @@ export const findTaskIndex: (tasks: taskCollection, id: string) => number = (tas
   tasks.task.forEach(task => {
 
     if (task.id === id) {
-      console.log('right')
       index = spot
     }
     spot++
