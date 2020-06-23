@@ -7,22 +7,27 @@
     >
     </app-add-task>
   </div>
-  <button class="m-2 addTask btn btn-secondary" (click)="onClickShow()">add task</button>
+  <app-edit-task *ngIf="showEditTask"> </app-edit-task>
+
+  <button class="m-2 addTask btn btn-secondary" (click)="onClickShow()">
+    add task
+  </button>
   <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
 </div>
 
 <ng-template #ifList>
   <div cdkDropListGroup>
-  <div
-    class="example-container"
-    *ngFor="let taskCollection of selectedTasks.taskCollection"
-  >
-    <app-task
-      (updateCollection)="onUpdate()"
-      (dealteCollection)="onDelate($event)"
-      [taskCollection]="taskCollection"
-    ></app-task>
-  </div>
+    <div
+      class="example-container"
+      *ngFor="let taskCollection of selectedTasks.taskCollection"
+    >
+      <app-task
+        (updateCollection)="onUpdate()"
+        (dealteCollection)="onDelate($event)"
+        (editCollectionTask)="onClickEdit($event)"
+        [taskCollection]="taskCollection"
+      ></app-task>
+    </div>
   </div>
 </ng-template>
 

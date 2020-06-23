@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core'
+import { Input } from '@angular/core'
+import { task } from 'src/app/models/apiTask/types'
 @Component({
   selector: 'app-edit-task',
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.css']
 })
-export class EditTaskComponent implements OnInit {
+export class EditTaskComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  @Input('taskInfo') taskInfo: task
+
+  
 
 }

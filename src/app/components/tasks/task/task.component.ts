@@ -4,7 +4,10 @@ import { EventEmitter, Output } from '@angular/core'
 import { ActivatedRoute } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
 
+import { findTaskIndex } from '../../../helpers/find'
+
 import { tasks, taskCollection } from '../../../models/apiTask/types'
+import { IFindIndex } from '../../../models/types/types'
 
 @Component({
   selector: 'app-task',
@@ -16,17 +19,16 @@ export class TaskComponent implements OnInit {
 
   @Input('taskCollection') collection: taskCollection
   @Output('updateCollection') update: EventEmitter<void> = new EventEmitter()
+  @Output('editCollectionTask') edit: EventEmitter<IFindIndex> = new EventEmitter()
   @Output('dealteCollection') delate: EventEmitter<string> = new EventEmitter()
-
-  showEdit:boolean = false
   tasks: tasks
 
 
   ngOnInit(): void {
+
   }
 
   drop(event: CdkDragDrop<tasks[]>): void {
-    console.log(event.previousContainer + '  ' + event.container)
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
 
@@ -44,8 +46,13 @@ export class TaskComponent implements OnInit {
     this.delate.emit(this.collection.name)
   }
 
-  edit(id:string): void {
-    this.showEdit = true
+  editTaskClick(id: string): void {
+    const findIndex: IFindIndex = {
+      taskCollectionName: this.collection.name,
+      taskIndex: findTaskIndex(this.collection, id)
+
+    }
+    this.edit.emit(findIndex)
   }
 
 }

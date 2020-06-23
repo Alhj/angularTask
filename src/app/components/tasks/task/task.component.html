@@ -1,5 +1,4 @@
 <div>
-  <app-edit-task *ngIf="showEdit"></app-edit-task>
   <h2>{{ collection.name }}</h2>
   <button class="btn btn-danger" (click)="delete()">x</button>
 </div>
@@ -16,6 +15,6 @@
     [cdkDragData]="task"
   >
     {{ task.name }}
-    <button class="btn btn-primary" (click)="edit(task.id)">edit</button>
+    <button class="btn btn-primary" (click)="editTaskClick(task.id)">edit</button>
   </div>
 </div>

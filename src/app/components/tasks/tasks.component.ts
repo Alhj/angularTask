@@ -4,7 +4,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { getTask, changeCollection } from '../../helpers/fetchdata/fetchtask'
 import { delateCollection } from '../../helpers/fetchdata/fetchtask'
 
-import { tasks } from '../../models/apiTask/types'
+import { tasks, task } from '../../models/apiTask/types'
+import { IFindIndex } from '../../models/types/types'
+import { findCollectionIndex } from '../../helpers/find'
 
 @Component({
   selector: 'app-tasks',
@@ -23,6 +25,11 @@ export class TasksComponent implements OnInit {
 
   isCollectionEmpty: boolean
 
+  editTask: task
+
+  showEditTask: boolean = false
+
+
   async ngOnInit(): Promise<void> {
     this.router.paramMap.subscribe(async (params: ParamMap) => {
       this.id = params.get('tasksID')
@@ -36,6 +43,17 @@ export class TasksComponent implements OnInit {
   onClickShow(): void {
     if (!this.showAddTask) {
       this.showAddTask = true
+    }
+  }
+
+  onClickEdit(findIndex: IFindIndex) {
+    if (!this.showEditTask) {
+
+      const collectionIndex: number = findCollectionIndex(this.selectedTasks, findIndex.taskCollectionName)
+
+      this.editTask = this.selectedTasks.taskCollection[collectionIndex].task[findIndex.taskIndex]
+
+      this.showEditTask = true
     }
   }
 

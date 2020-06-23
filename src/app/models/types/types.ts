@@ -70,3 +70,9 @@ export interface ICollectionInfo {
   _id:string
   project:string
 }
+
+
+export interface IFindIndex {
+  taskCollectionName: string
+  taskIndex: number
+}
