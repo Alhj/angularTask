@@ -7,7 +7,7 @@
     >
     </app-add-task>
   </div>
-  <app-edit-task *ngIf="showEditTask"> </app-edit-task>
+  <app-edit-task [taskInfo]="editTask" (closeClick)="onClilckClose($event)" *ngIf="showEditTask"> </app-edit-task>
 
   <button class="m-2 addTask btn btn-secondary" (click)="onClickShow()">
     add task

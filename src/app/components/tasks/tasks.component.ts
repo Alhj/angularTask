@@ -47,6 +47,7 @@ export class TasksComponent implements OnInit {
   }
 
   onClickEdit(findIndex: IFindIndex) {
+    console.log(findIndex)
     if (!this.showEditTask) {
 
       const collectionIndex: number = findCollectionIndex(this.selectedTasks, findIndex.taskCollectionName)
@@ -54,6 +55,12 @@ export class TasksComponent implements OnInit {
       this.editTask = this.selectedTasks.taskCollection[collectionIndex].task[findIndex.taskIndex]
 
       this.showEditTask = true
+    }
+  }
+
+  onClilckClose(close: boolean) {
+    if (close) {
+      this.showEditTask = false
     }
   }
 

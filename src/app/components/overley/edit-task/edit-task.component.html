@@ -1,12 +1,11 @@
 <div class="overley">
   <div class="overlay_form">
-    <button class="btn btn-secondary" >back</button>
-    <button class="btn btn-secondary" >add collection</button>
+    <button class="btn btn-secondary" (click)="onClose()">back</button>
       <input
         class="taskInput"
         type="text"
         placeholder="taskname ..."
-        formControlName="name"
+        value={{taskInfo.name}}
       />
       <input class="btn btn-secondary" type="submit" placeholder="edit task"/>
   </div>
