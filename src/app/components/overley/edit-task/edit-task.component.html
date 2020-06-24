@@ -4,13 +4,14 @@
       <div class="card col-md-4">
         <article class="card-body">
           <button class="btn btn-secondary" (click)="onClose()">back</button>
-          <form [formGroup]="editForm">
+          <form [formGroup]="editForm" (ngSubmit)="onSumbit(editForm.value)">
             <div class="form-group text-center">
               <input
                 class="form-control"
                 type="text"
                 formControlName="name"
                 placeholder="taskname ..."
+                value={{taskInfo.name}}
               />
             </div>
             <div class="form-group text-center">
