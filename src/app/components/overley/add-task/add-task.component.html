@@ -1,32 +1,56 @@
 <div class="overley">
-  <div class="overlay_form">
-    <button class="btn btn-secondary" (click)="onClickClose()">back</button>
-    <button class="btn btn-secondary" (click)="onAddCollection()" *ngIf="addCollection == true">add collection</button>
-    <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit(addTaskForm.value)">
-      <div *ngIf="addCollection; then thenTemp; else elseTemp"></div>
-      <input
-        class="taskInput"
-        type="text"
-        placeholder="taskname ..."
-        formControlName="name"
-      />
-      <input class="btn btn-secondary" type="submit" placeholder="add task"/>
-    </form>
+    <div class="row d-flex justify-content-center">
+      <div class="card col-md-4">
+        <article class="card-body">
+          <button class="btn btn-secondary" (click)="onClickClose()">
+            back
+          </button>
+          <button
+            class="btn btn-secondary"
+            (click)="onAddCollection()"
+            *ngIf="addCollection == true"
+          >
+            add collection
+          </button>
+          <form
+            [formGroup]="addTaskForm"
+            (ngSubmit)="onSubmit(addTaskForm.value)"
+          >
+            <div *ngIf="addCollection; then thenTemp; else elseTemp"></div>
+            <div class="form-group text-center">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="taskname ..."
+                formControlName="name"
+              />
+            </div>
+            <div class="form-group text-center">
+              <input
+                class="btn btn-secondary"
+                type="submit"
+                placeholder="add task"
+              />
+            </div>
+          </form>
+        </article>
+      </div>
+    </div>
   </div>
-</div>
 
 <ng-template #thenTemp>
   <div [formGroup]="addTaskForm">
-  <select formControlName="twoCollection">
-    <option *ngFor="let col of collection" value="{{ col.name }}">{{
-      col.name
-    }}</option>
-  </select>
-</div>
+    <select formControlName="twoCollection">
+      <option *ngFor="let col of collection" value="{{ col.name }}">{{
+        col.name
+      }}</option>
+    </select>
+  </div>
 </ng-template>
 
 <ng-template #elseTemp>
-  <div [formGroup]="addTaskForm">
+  <div class="form-group text-center" [formGroup]="addTaskForm">
+    <label>collectionName</label>
     <input type="text" formControlName="twoCollection" />
   </div>
 </ng-template>

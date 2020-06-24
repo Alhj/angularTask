@@ -18,14 +18,11 @@ interface IFbGruop {
   templateUrl: './add-collection.component.html',
   styleUrls: ['./add-collection.component.css']
 })
-export class AddCollectionComponent implements OnInit {
+export class AddCollectionComponent {
   constructor(private fb: FormBuilder) { }
 
   @Output() closeWindow: EventEmitter<boolean> = new EventEmitter();
   @Output() addColl: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit(): void {
-  }
 
   addCollectionForm = this.fb.group({
     name: ''
