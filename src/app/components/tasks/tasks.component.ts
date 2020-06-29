@@ -3,10 +3,12 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { getTask, changeCollection } from '../../helpers/fetchdata/fetchtask'
 import { delateCollection } from '../../helpers/fetchdata/fetchtask'
+import { createNewTask } from '../../helpers/fetchdata/fetchtask'
 
 import { tasks, task } from '../../models/apiTask/types'
 import { IFindIndex } from '../../models/types/types'
 import { findCollectionIndex } from '../../helpers/find'
+import { createTask } from 'src/app/models/types/createTypes';
 
 @Component({
   selector: 'app-tasks',
@@ -68,19 +70,29 @@ export class TasksComponent implements OnInit {
     }
   }
 
-  async onClose(close: boolean): Promise<void> {
+  onClose(close: boolean): void {
     if (close) {
-      this.selectedTasks = await getTask(this.id)
-
       this.showAddTask = false;
     }
   }
 
-  onAdd(): void {
+  async onAdd(): Promise<void> {
     this.showAddTask = true
   }
 
+  async onAddTask(event: createTask): Promise<void> {
+
+    const addtask: Boolean = await createNewTask(event);
+    if (!this.isCollectionEmpty) {
+      console.log('hello ')
+      this.isCollectionEmpty = true
+      this.selectedTasks = await getTask(this.id)
+    }
+    this.showAddTask = false
+  }
+
   async onUpdate(): Promise<void> {
+    console.log('hello')
     changeCollection(this.selectedTasks, this.id)
   }
 
@@ -88,5 +100,11 @@ export class TasksComponent implements OnInit {
     await delateCollection(this.id, name)
 
     this.selectedTasks = await getTask(this.id)
+
+    const isNotEmpty: Boolean = this.selectedTasks.taskCollection.length >= 1
+
+    if (!isNotEmpty) {
+      this.isCollectionEmpty = false;
+    }
   }
 }

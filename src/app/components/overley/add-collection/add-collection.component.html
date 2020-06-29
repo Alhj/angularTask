@@ -1,34 +1,31 @@
-<div class="overley">
-  <div class="overley_form">
-    <div class="row d-flex justify-content-center">
-      <div class="card col-md-4">
-        <article class="card-body">
-          <button class="btn btn-secondary" (click)="onClickClose()">
-            back
-          </button>
-          <form
-            [formGroup]="addCollectionForm"
-            (ngSubmit)="onSubmit(addCollectionForm.value)"
-          >
-            <div class="form-group text-center">
-              <label>collection name</label>
-              <input
-                class="form-control"
-                type="text"
-                formControlName="name"
-                placeholder="collection name"
-              />
-            </div>
-            <div class="form-group text-center">
-              <input
-                class="btn btn-secondary btn-block"
-                type="submit"
-                value="add collection"
-              />
-            </div>
-          </form>
-        </article>
-      </div>
+<div class="overley" (click)="onClickSide($event)">
+  <div class="row d-flex justify-content-center">
+    <div class="card col-md-4">
+      <article class="card-body">
+        <button class="btn btn-secondary" (click)="onClickClose($event)">
+          back
+        </button>
+        <form
+          [formGroup]="addCollectionForm"
+          (ngSubmit)="onSubmit(addCollectionForm.value)"
+        >
+          <div class="form-group text-center">
+            <label>collection name</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="name"
+              placeholder="collection name"
+            />
+          </div>
+          <div class="form-group text-center">
+            <input
+              class="btn btn-secondary btn-block"
+              type="submit"
+              value="add collection"
+            />
+          </div>
+        </form>
+      </article>
     </div>
   </div>
-</div>

@@ -13,6 +13,10 @@ interface IFbGruop {
   name: string
 }
 
+interface IEventTarget extends EventTarget {
+  className?: string
+}
+
 @Component({
   selector: 'app-add-collection',
   templateUrl: './add-collection.component.html',
@@ -29,8 +33,16 @@ export class AddCollectionComponent {
   })
 
 
-  onClickClose() {
-    this.closeWindow.emit(true);
+  onClickSide(e: MouseEvent) {
+    const target: IEventTarget = e.target
+    if (target.className === 'overley') {
+      this.closeWindow.emit(true);
+    }
+  }
+
+  onClickClose(e: MouseEvent): void {
+    e.preventDefault()
+    this.closeWindow.emit(true)
   }
 
 

@@ -3,7 +3,7 @@
     <div>
       <a class="display-4 nav-link" routerLink="/">Home</a>
     </div>
-    <span class="d-flex justify-content-end">
+    <span class="left d-flex justify-content-end">
       <nav *ngIf="isSignIn | async; then thenblock; else elseblock"></nav>
     </span>
   </nav>

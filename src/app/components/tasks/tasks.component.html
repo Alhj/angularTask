@@ -2,6 +2,7 @@
   <div *ngIf="showAddTask">
     <app-add-task
       (closeWindow)="onClose($event)"
+      (addTasks)="onAddTask($event)"
       [taskCollection]="selectedTasks.taskCollection"
       [id]="id"
     >

@@ -26,6 +26,7 @@ export class AddTaskComponent implements OnInit {
   @Input('taskCollection') collection: taskCollection[]
   @Input('id') id: string
   @Output() closeWindow: EventEmitter<boolean> = new EventEmitter()
+  @Output() addTasks: EventEmitter<createTask> = new EventEmitter()
 
   addCollection: boolean;
 
@@ -49,18 +50,13 @@ export class AddTaskComponent implements OnInit {
   }
   async onSubmit(taskData: IFbGruop): Promise<void> {
 
-    const task: task = genereateTasks(taskData.name);
-
     const data: createTask = {
       id: this.id,
       name: taskData.twoCollection,
-      task: task
+      task: genereateTasks(taskData.name)
     }
 
-    const addTask: boolean = await createNewTask(data);
+    this.addTasks.emit(data);
 
-    if (addTask) {
-      this.closeWindow.emit(true);
-    }
   }
 }
