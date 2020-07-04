@@ -20,12 +20,15 @@ export class SigninComponent {
   ) {
   }
 
+  message: string = ''
+
   singInForm = this.fb.group({
     email: '',
     password: ''
   })
 
   async onSumbit(coustomData): Promise<void> {
+    this.message = ''
     this.singInForm.reset()
 
     const respons: boolean = await signInReq(coustomData.email, coustomData.password);
@@ -34,6 +37,8 @@ export class SigninComponent {
       this.store.dispatch(signIn())
 
       this.route.navigate(['/tasks'])
+    } else {
+      this.message = 'Wrong email or password'
     }
   }
 

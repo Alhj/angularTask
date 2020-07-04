@@ -7,13 +7,19 @@ export const signInReq: (email: string, password: string) => Promise<boolean> = 
     password: password
   }
   try {
-    const signInRes: IAxiosSignIn  = await axios.post('http://localhost:8080/signIn', obj)
+    const signInRes = await axios.post('http://localhost:8080/signIn', obj)
 
-    const signIn:IResponsSingIn = signInRes.data
+    const signIn: IResponsSingIn = signInRes.data
 
-    localStorage.setItem('token',signInRes.headers.authorization)
+    console.log(signInRes.headers)
 
-    localStorage.setItem('name', signIn.user)
+    if (signIn.authState) {
+
+      localStorage.setItem('token', signInRes.headers.authorization)
+
+      localStorage.setItem('name', signIn.user)
+
+    }
 
     return signIn.authState
   } catch (e) {

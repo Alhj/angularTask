@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router'
 import { FormGroup, FormBuilder } from '@angular/forms';
 
@@ -11,7 +11,7 @@ import { SignUpForm } from '../../../models/types/types'
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
 
   constructor(private router: Router, private fb: FormBuilder) {
   }
@@ -23,8 +23,6 @@ export class SignupComponent implements OnInit {
     password: '',
     comparePassword: '',
   });
-  ngOnInit(): void {
-  }
 
   async onSumbit(coustomData: SignUpForm): Promise<void> {
     this.signUpForm.reset();

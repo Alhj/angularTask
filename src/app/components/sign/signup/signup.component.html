@@ -5,36 +5,42 @@
         <span class="container text-center">
           <h2>Sign up</h2>
         </span>
+        <hr />
+        <p class="text-center text-danger">{{message}}</p>
         <form
           class="signUpForm"
           [formGroup]="signUpForm"
           (ngSubmit)="onSumbit(signUpForm.value)"
         >
           <div class="form-group text-center">
+            <label>Email</label>
             <input
               class="form-control"
               type="text"
               formControlName="email"
-              placeholder="email..."
+              placeholder="Email..."
             />
           </div>
           <div class="form-group text-center">
+            <label>Display name</label>
             <input
               class="form-control"
               type="text"
               formControlName="name"
-              placeholder="username"
+              placeholder="Display name"
             />
           </div>
           <div class="form-group text-center">
+            <label>Password</label>
             <input
               class="form-control"
               type="password"
               formControlName="password"
-              placeholder="password..."
+              placeholder="Password..."
             />
           </div>
           <div class="form-group text-center">
+            <label>Conform password</label>
             <input
               class="form-control"
               type="password"
@@ -43,7 +49,7 @@
             />
           </div>
           <div class="form-group text-center">
-            <input class="btn btn-secondary" type="submit" value="sign up" />
+            <input class="btn btn-secondary btn-block" type="submit" value="sign up" />
           </div>
         </form>
       </article>
