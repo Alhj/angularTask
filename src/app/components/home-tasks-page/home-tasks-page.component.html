@@ -5,11 +5,6 @@
 </ng-template>
 
 <ng-template #elseLoading>
-  <span class="container">
-    <button class="btn btn-secondary" (click)="onClick()">
-      add collection
-    </button>
-  </span>
   <app-add-collection
     (addColl)="updateCollection()"
     (closeWindow)="onClose($event)"
@@ -22,13 +17,35 @@
     *ngIf="showDealteOverlay"
   >
   </app-delate-sure>
-
-  <div class="container d-flex justify-content-between flex-wrap">
-      <div class="card p-4" *ngFor="let tasks of userTasks">
-        <app-links
-          (dealteOverlay)="onDealteClick($event)"
-          [tasks]="tasks"
-        ></app-links>
-      </div>
+  <span class="container">
+    <button class="btn btn-secondary" (click)="onClick()">
+      add collection
+    </button>
+    <div class="container">
+      <div
+        *ngIf="noCollectionFound; then noCollection; else haveCollection"
+      ></div>
     </div>
+  </span>
+</ng-template>
+
+<ng-template #haveCollection>
+  <div class="container d-flex justify-content-between flex-wrap">
+    <div class="card p-4" *ngFor="let tasks of userTasks">
+      <app-links
+        (dealteOverlay)="onDealteClick($event)"
+        [tasks]="tasks"
+      ></app-links>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noCollection>
+  <h4 class="text-center">no collection found</h4>
+  <div class="text-center">
+    <h3>add a your first collection</h3>
+    <button class="btn btn-primary" (click)="onClick()">
+      add a collection
+    </button>
+  </div>
 </ng-template>

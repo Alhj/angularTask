@@ -21,8 +21,10 @@ export class HomeTasksPageComponent implements OnInit {
 
   userTasks: tasks[] = []
 
+  noCollectionFound: Boolean = true
+
   collectionInfo: ICollectionInfo = {
-    _id:'1',
+    _id: '1',
     project: 'hello'
   }
 
@@ -32,12 +34,15 @@ export class HomeTasksPageComponent implements OnInit {
 
       this.isLoading = false;
 
+      this.noCollectionFound = this.userTasks.length === 0;
+
     } else {
       this.router.navigate(['/'])
     }
   }
 
   onClick(): void {
+
     if (!this.showOverley) {
       this.showOverley = true;
     } else {
@@ -52,7 +57,7 @@ export class HomeTasksPageComponent implements OnInit {
     }
   }
 
-  onDealteClick(event:ICollectionInfo) {
+  onDealteClick(event: ICollectionInfo) {
     this.collectionInfo = event
 
     console.log(this.collectionInfo)
@@ -60,14 +65,18 @@ export class HomeTasksPageComponent implements OnInit {
     this.showDealteOverlay = true
   }
 
-  async onDealteCollection() {
-
-  }
-
   async updateCollection() {
     this.userTasks = await getUserTasks();
     this.showOverley = false
     this.showDealteOverlay = false
+
+    if (this.noCollectionFound) {
+      this.noCollectionFound = false
+    }
+
+    if (this.userTasks.length === 0) {
+      this.noCollectionFound = true
+    }
   }
 
 }
