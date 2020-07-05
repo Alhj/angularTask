@@ -88,11 +88,15 @@ export class TasksComponent implements OnInit {
       this.isCollectionEmpty = true
       this.selectedTasks = await getTask(this.id)
     }
+
+    if (addtask) {
+      this.selectedTasks = await getTask(this.id)
+    }
+
     this.showAddTask = false
   }
 
   async onUpdate(): Promise<void> {
-    console.log('hello')
     changeCollection(this.selectedTasks, this.id)
   }
 

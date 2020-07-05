@@ -1,42 +1,52 @@
 <div class="overley">
-    <div class="row d-flex justify-content-center">
-      <div class="card col-md-4">
-        <article class="card-body">
+  <div class="row d-flex justify-content-center">
+    <div class="card col-md-4">
+      <article class="card-body">
+        <div class="container">
           <button class="btn btn-secondary" (click)="onClickClose()">
             back
           </button>
           <button
-            class="btn btn-secondary"
+            class="btn btn-secondary margin-left"
             (click)="onAddCollection()"
             *ngIf="addCollection == true"
           >
             add collection
           </button>
-          <form
-            [formGroup]="addTaskForm"
-            (ngSubmit)="onSubmit(addTaskForm.value)"
+          <button
+          class="btn btn-secondary margin-left"
+          (click)="onBackClick()"
+          *ngIf="addCollection == false && collection.length > 0"
           >
-            <div *ngIf="addCollection; then thenTemp; else elseTemp"></div>
-            <div class="form-group text-center">
-              <input
-                class="form-control"
-                type="text"
-                placeholder="taskname ..."
-                formControlName="name"
-              />
-            </div>
-            <div class="form-group text-center">
-              <input
-                class="btn btn-secondary"
-                type="submit"
-                placeholder="add task"
-              />
-            </div>
-          </form>
-        </article>
-      </div>
+          Add task
+          </button>
+        </div>
+        <form
+          [formGroup]="addTaskForm"
+          (ngSubmit)="onSubmit(addTaskForm.value)"
+        >
+          <div *ngIf="addCollection; then thenTemp; else elseTemp"></div>
+          <div class="form-group text-center">
+            <p>Task name</p>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Task name ..."
+              formControlName="name"
+            />
+          </div>
+          <div class="form-group text-center">
+            <input
+              class="btn btn-secondary"
+              type="submit"
+              placeholder="add task"
+            />
+          </div>
+        </form>
+      </article>
     </div>
   </div>
+</div>
 
 <ng-template #thenTemp>
   <div [formGroup]="addTaskForm">
@@ -50,7 +60,12 @@
 
 <ng-template #elseTemp>
   <div class="form-group text-center" [formGroup]="addTaskForm">
-    <label>collectionName</label>
-    <input type="text" formControlName="twoCollection" />
+    <label>Task Collection</label>
+    <input
+      class="form-control"
+      type="text"
+      formControlName="twoCollection"
+      placeholder="Task collection"
+    />
   </div>
 </ng-template>

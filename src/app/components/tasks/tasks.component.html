@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <div *ngIf="showAddTask">
     <app-add-task
       (closeWindow)="onClose($event)"
@@ -13,7 +13,7 @@
   <button class="m-2 addTask btn btn-secondary" (click)="onClickShow()">
     add task
   </button>
-  <div>
+  <div class="container">
   <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
 </div>
 
