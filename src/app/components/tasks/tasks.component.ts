@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { getTask, changeCollection } from '../../helpers/fetchdata/fetchtask'
+import { getTask, changeCollection, getUser } from '../../helpers/fetchdata/fetchtask'
 import { delateCollection } from '../../helpers/fetchdata/fetchtask'
 import { createNewTask } from '../../helpers/fetchdata/fetchtask'
 
@@ -23,9 +23,11 @@ export class TasksComponent implements OnInit {
 
   selectedTasks: tasks;
 
-  showAddTask: boolean = false;
+  showAddTask: boolean = false
 
   isCollectionEmpty: boolean
+
+  isUserRight: boolean
 
   editTask: task
 
@@ -38,7 +40,10 @@ export class TasksComponent implements OnInit {
 
       this.selectedTasks = await getTask(this.id)
 
+      this.isUserRight = await getUser(this.id)
+
       this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
+
     })
   }
 

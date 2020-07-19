@@ -66,11 +66,21 @@ export interface IAxiosUppdate extends IAxios {
   data: responsUpdate
 }
 
+export interface IRequest {
+  taskCollection: {
+    _id:string
+    users:string[]
+  }
+}
+
+export interface IAxiosRequest extends IAxios {
+  data: IRequest
+}
+
 export interface ICollectionInfo {
   _id:string
   project:string
 }
-
 
 export interface IFindIndex {
   taskCollectionName: string

@@ -1,4 +1,8 @@
 <div>
+  <div *ngIf="isUserRight">
+    <app-collection-wrong-user></app-collection-wrong-user>
+  </div>
+
   <div *ngIf="showAddTask">
     <app-add-task
       (closeWindow)="onClose($event)"

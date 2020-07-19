@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
 import { tasks, taskCollection, IUpdateTask } from '../../models/apiTask/types'
-import { IAxiosGetTasks, IAxiosUppdate } from '../../models/types/types'
+import { IAxiosGetTasks, IAxiosUppdate, IAxiosRequest } from '../../models/types/types'
 import { createTask } from '../../models/types/createTypes'
 
 export const getTask: (id: string) => Promise<tasks> = async (id: string) => {
@@ -17,6 +17,31 @@ export const getTask: (id: string) => Promise<tasks> = async (id: string) => {
   const data = res.data
 
   return data.taskCollection
+}
+
+export const getUser: (id: string) => Promise<boolean> = async (id: string) => {
+
+  const conf: AxiosRequestConfig = {
+    headers: {
+      authorization: localStorage.getItem('token')
+    },
+  }
+
+  const res: IAxiosRequest = await axios.get(`http://localhost:8080/collection/${id}`, conf)
+
+  const data = res.data.taskCollection
+
+  const condition = (userName: string) => userName.toLowerCase() === localStorage.getItem('name').toLowerCase()
+
+  const result: number = data.users.findIndex(condition)
+
+  console.log(result)
+
+  if (result) {
+    return true
+  } else {
+    return false
+  }
 }
 
 export const createNewTask: (collection: createTask) => Promise<boolean> = async (collection: createTask) => {
