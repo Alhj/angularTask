@@ -38,12 +38,16 @@ export class TasksComponent implements OnInit {
     this.router.paramMap.subscribe(async (params: ParamMap) => {
       this.id = params.get('tasksID')
 
-      this.selectedTasks = await getTask(this.id)
-
       this.isUserRight = await getUser(this.id)
+      
+      console.log(this.isUserRight)
 
-      this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
+      if (!this.isUserRight) {
 
+        this.selectedTasks = await getTask(this.id)
+
+        this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
+      }
     })
   }
 

@@ -11,7 +11,6 @@ export const getTask: (id: string) => Promise<tasks> = async (id: string) => {
     },
   }
 
-
   const res: IAxiosGetTasks = await axios.get(`http://localhost:8080/collection/${id}`, conf)
 
   const data = res.data
@@ -34,8 +33,6 @@ export const getUser: (id: string) => Promise<boolean> = async (id: string) => {
   const condition = (userName: string) => userName.toLowerCase() === localStorage.getItem('name').toLowerCase()
 
   const result: number = data.users.findIndex(condition)
-
-  console.log(result)
 
   if (result) {
     return true

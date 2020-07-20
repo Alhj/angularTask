@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-collection-wrong-user',
   templateUrl: './collection-wrong-user.component.html',
   styleUrls: ['./collection-wrong-user.component.css']
 })
-export class CollectionWrongUserComponent implements OnInit {
+export class CollectionWrongUserComponent{
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  sendRequest():void {
+    
   }
 
+  goBack():void {
+    this.router.navigate(['/tasks'])
+  }
 }
