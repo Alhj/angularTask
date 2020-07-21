@@ -86,3 +86,11 @@ export interface IFindIndex {
   taskCollectionName: string
   taskIndex: number
 }
+
+export interface IValidationUser {
+  validUser:boolean
+}
+
+export interface IValidUserRes extends IAxios {
+  data: IValidationUser
+}

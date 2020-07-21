@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { getTask, changeCollection, getUser } from '../../helpers/fetchdata/fetchtask'
+import { validateName } from '../../helpers/fetchdata/authSignin'
 import { delateCollection } from '../../helpers/fetchdata/fetchtask'
 import { createNewTask } from '../../helpers/fetchdata/fetchtask'
 
@@ -40,8 +41,6 @@ export class TasksComponent implements OnInit {
 
       this.isUserRight = await getUser(this.id)
       
-      console.log(this.isUserRight)
-
       if (!this.isUserRight) {
 
         this.selectedTasks = await getTask(this.id)
