@@ -1,6 +1,6 @@
 <div>
   <div *ngIf="isUserRight">
-    <app-collection-wrong-user></app-collection-wrong-user>
+    <app-collection-wrong-user [collectionId]="id"></app-collection-wrong-user>
   </div>
 
   <div *ngIf="showAddTask">
@@ -12,33 +12,40 @@
     >
     </app-add-task>
   </div>
-  <app-edit-task [taskInfo]="editTask" (closeClick)="onClilckClose($event)"  (editTask)="onEditTask()" *ngIf="showEditTask"> </app-edit-task>
+  <app-edit-task
+    [taskInfo]="editTask"
+    (closeClick)="onClilckClose($event)"
+    (editTask)="onEditTask()"
+    *ngIf="showEditTask"
+  >
+  </app-edit-task>
   <a routerLink="/tasks"> back</a>
   <button class="m-2 addTask btn btn-secondary" (click)="onClickShow()">
     add task
   </button>
   <div class="container">
-  <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
-</div>
+    <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
+  </div>
 
-<ng-template #ifList>
-  <div cdkDropListGroup>
-    <div
-      class="example-container"
-      *ngFor="let taskCollection of selectedTasks.taskCollection"
-    >
-      <app-task
-        (updateCollection)="onUpdate()"
-        (dealteCollection)="onDelate($event)"
-        (editCollectionTask)="onClickEdit($event)"
-        [taskCollection]="taskCollection"
-      ></app-task>
+  <ng-template #ifList>
+    <div cdkDropListGroup>
+      <div
+        class="example-container"
+        *ngFor="let taskCollection of selectedTasks.taskCollection"
+      >
+        <app-task
+          (updateCollection)="onUpdate()"
+          (dealteCollection)="onDelate($event)"
+          (editCollectionTask)="onClickEdit($event)"
+          [taskCollection]="taskCollection"
+        ></app-task>
+      </div>
     </div>
-  </div>
-</ng-template>
+  </ng-template>
 
-<ng-template #elseList>
-  <div class="example-container">
-    <h2>no item in the list</h2>
-  </div>
-</ng-template>
+  <ng-template #elseList>
+    <div class="example-container">
+      <h2>no item in the list</h2>
+    </div>
+  </ng-template>
+</div>

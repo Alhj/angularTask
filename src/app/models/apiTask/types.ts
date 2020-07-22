@@ -22,5 +22,10 @@ export interface ICreateTasks {
 
 export interface IUpdateTask {
   _id: string
-  tasks:tasks
+  tasks: tasks
+}
+
+export interface IRequestCollection {
+  requestCollectionId: string
+  user: string
 }
