@@ -28,6 +28,7 @@ import { LinksComponent } from './components/home-tasks-page/links/links.compone
 import { AddUserCollectionComponent } from './components/overley/add-user-collection/add-user-collection.component';
 import { RequestUserComponent } from './components/overley/request-user/request-user.component';
 import { CollectionWrongUserComponent } from './components/overley/collection-wrong-user/collection-wrong-user.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CollectionWrongUserComponent } from './components/overley/collection-wr
     AddUserCollectionComponent,
     RequestUserComponent,
     CollectionWrongUserComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

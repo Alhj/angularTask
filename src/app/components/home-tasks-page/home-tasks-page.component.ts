@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
+import { MessageService } from '../../message/message.service'
+
 import { getUserTasks } from '../../helpers/fetchdata/fetchTasks'
 import { tasks } from '../../models/apiTask/types';
 import { ICollectionInfo } from '../../models/types/types'
@@ -11,7 +13,7 @@ import { ICollectionInfo } from '../../models/types/types'
   styleUrls: ['./home-tasks-page.component.css']
 })
 export class HomeTasksPageComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private messageService: MessageService) { }
 
   isLoading: boolean = true
 
@@ -35,6 +37,8 @@ export class HomeTasksPageComponent implements OnInit {
       this.isLoading = false;
 
       this.noCollectionFound = this.userTasks.length === 0;
+
+      console.log(this.messageService.message)
 
     } else {
       this.router.navigate(['/'])
