@@ -10,19 +10,32 @@ export class MessageService {
 
   status: boolean
 
+  private timeOutStart: Boolean = false
+
   setMessage(message: string): void {
     this.message = message
     this.show = true
   }
 
   removeMessage(): void {
-    setTimeout(() => {
-      this.message = ''
-      this.show = false
-    }, 10000)
+    if (!this.timeOutStart) {
+      this.timeOutStart = true
+
+      setTimeout(() => {
+        this.resetMessage()
+      }, 10000)
+    }
   }
 
   setStatus(status: boolean): void {
     this.status = status
+  }
+
+  private resetMessage(): void {
+    this.message = ''
+
+    this.show = false
+
+    this.timeOutStart = false
   }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import { MessageService } from '../../message/message.service'
-
 import { getUserTasks } from '../../helpers/fetchdata/fetchTasks'
 import { tasks } from '../../models/apiTask/types';
 import { ICollectionInfo } from '../../models/types/types'
@@ -13,7 +11,7 @@ import { ICollectionInfo } from '../../models/types/types'
   styleUrls: ['./home-tasks-page.component.css']
 })
 export class HomeTasksPageComponent implements OnInit {
-  constructor(private router: Router, private messageService: MessageService) { }
+  constructor(private router: Router) { }
 
   isLoading: boolean = true
 
@@ -25,10 +23,7 @@ export class HomeTasksPageComponent implements OnInit {
 
   noCollectionFound: Boolean = true
 
-  collectionInfo: ICollectionInfo = {
-    _id: '1',
-    project: 'hello'
-  }
+  collectionInfo: ICollectionInfo 
 
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('token')) {
@@ -37,8 +32,6 @@ export class HomeTasksPageComponent implements OnInit {
       this.isLoading = false;
 
       this.noCollectionFound = this.userTasks.length === 0;
-
-      console.log(this.messageService.message)
 
     } else {
       this.router.navigate(['/'])
@@ -63,8 +56,6 @@ export class HomeTasksPageComponent implements OnInit {
 
   onDealteClick(event: ICollectionInfo) {
     this.collectionInfo = event
-
-    console.log(this.collectionInfo)
 
     this.showDealteOverlay = true
   }

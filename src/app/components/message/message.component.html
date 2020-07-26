@@ -1,5 +1,7 @@
-<div [className]="">
-  <div [className]="messageService.status ? 'bg-success' : 'bg-danger'">
+<div [className]="messageService.show ? 'container show' : 'container none'" >
+  <div
+    [className]="messageService.status ? 'alert alert-success' : ' alert alert-danger'"
+  >
     <p>{{ messageService.message }}</p>
   </div>
 </div>

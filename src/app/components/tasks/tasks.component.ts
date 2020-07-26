@@ -92,7 +92,6 @@ export class TasksComponent implements OnInit {
 
     const addtask: Boolean = await createNewTask(event);
     if (!this.isCollectionEmpty) {
-      console.log('hello ')
       this.isCollectionEmpty = true
       this.selectedTasks = await getTask(this.id)
     }

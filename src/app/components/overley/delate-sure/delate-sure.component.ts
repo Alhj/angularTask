@@ -16,11 +16,6 @@ export class DelateSureComponent {
   @Output('dealte') dealte: EventEmitter<void> = new EventEmitter()
   @Input('CollectionInfo') collectionInfo: ICollectionInfo
 
-
-  ngOnInit(): void {
-    console.log(this.collectionInfo)
-  }
-
   async onDealte(): Promise<void> {
     await dealteTasks(this.collectionInfo._id)
     this.dealte.emit()

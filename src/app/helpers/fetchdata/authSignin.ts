@@ -12,8 +12,6 @@ export const signInReq: (email: string, password: string) => Promise<boolean> = 
 
     const signIn: IResponsSingIn = signInRes.data
 
-    console.log(signInRes.headers)
-
     if (signIn.authState) {
 
       localStorage.setItem('token', signInRes.headers.authorization)
