@@ -1,4 +1,5 @@
-import { tasks, task } from '../apiTask/types'
+import { tasks } from '../apiTask/types'
+import { IRequestColl } from '../apiTask/types'
 
 export interface SignUpForm {
   email: string
@@ -68,8 +69,8 @@ export interface IAxiosUppdate extends IAxios {
 
 export interface IRequest {
   taskCollection: {
-    _id:string
-    users:string[]
+    _id: string
+    users: string[]
   }
 }
 
@@ -78,8 +79,8 @@ export interface IAxiosRequest extends IAxios {
 }
 
 export interface ICollectionInfo {
-  _id:string
-  project:string
+  _id: string
+  project: string
 }
 
 export interface IFindIndex {
@@ -88,9 +89,14 @@ export interface IFindIndex {
 }
 
 export interface IValidationUser {
-  validUser:boolean
+  validUser: boolean
 }
 
 export interface IValidUserRes extends IAxios {
   data: IValidationUser
+}
+
+
+export interface IRequest extends IAxios {
+  data: IRequestColl[]
 }

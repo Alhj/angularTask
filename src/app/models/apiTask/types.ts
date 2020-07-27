@@ -29,3 +29,7 @@ export interface IRequestCollection {
   requestCollectionId: string
   user: string
 }
+
+export interface IRequestColl {
+  requestCollection: IRequestCollection []
+}

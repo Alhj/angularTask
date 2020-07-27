@@ -29,6 +29,7 @@ import { AddUserCollectionComponent } from './components/overley/add-user-collec
 import { RequestUserComponent } from './components/overley/request-user/request-user.component';
 import { CollectionWrongUserComponent } from './components/overley/collection-wrong-user/collection-wrong-user.component';
 import { MessageComponent } from './components/message/message.component';
+import { RequestComponent } from './components/list/request/request.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MessageComponent } from './components/message/message.component';
     RequestUserComponent,
     CollectionWrongUserComponent,
     MessageComponent,
+    RequestComponent,
   ],
   imports: [
     BrowserModule,
