@@ -1,4 +1,7 @@
 import { Component, AfterViewChecked } from '@angular/core';
+import { Input } from '@angular/core'
+
+import { IRequestCollection } from '../../../models/apiTask/types'
 
 @Component({
   selector: 'app-request',
@@ -6,7 +9,7 @@ import { Component, AfterViewChecked } from '@angular/core';
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent implements AfterViewChecked {
-
+  @Input('requestList') request : IRequestCollection[]
   constructor() { }
   ngAfterViewChecked(): void {
    

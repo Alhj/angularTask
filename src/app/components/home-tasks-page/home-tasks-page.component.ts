@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { getUserTasks } from '../../helpers/fetchdata/fetchTasks'
+import { getRequestCollectionUser } from '../../helpers/fetchdata/requestToCollection'
+
 import { tasks } from '../../models/apiTask/types';
 import { ICollectionInfo } from '../../models/types/types'
+import { IRequestCollection } from '../../models/apiTask/types'
+
 
 @Component({
   selector: 'app-home-tasks-page',
@@ -23,11 +27,15 @@ export class HomeTasksPageComponent implements OnInit {
 
   noCollectionFound: Boolean = true
 
+  usersRequestCollection: IRequestCollection[]
+
   collectionInfo: ICollectionInfo 
 
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('token')) {
       this.userTasks = await getUserTasks();
+
+      this.usersRequestCollection = await getRequestCollectionUser();
 
       this.isLoading = false;
 

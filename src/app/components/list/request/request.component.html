@@ -1,3 +1,9 @@
-<div>
+<div ngbDropdown class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" id="requestList" ngbDropdownToggle>
+    {{request.length}} Request
+  </button>
   
+  <div ngbDropdownMenu aria-labelledby="requestList">
+    <p ngbDropdownItem *ngFor="let item of request">Pending</p>
+  </div>
 </div>

@@ -98,5 +98,5 @@ export interface IValidUserRes extends IAxios {
 
 
 export interface IRequest extends IAxios {
-  data: IRequestColl[]
+  data: IRequestColl
 }
