@@ -5,7 +5,10 @@
   display: inline-block;
   vertical-align: top;
 }
+.space {
+  margin: 10px;
+}
 
-.addTask {
-float: right;
+.space_betwen {
+  margin-right: 10px;
 }

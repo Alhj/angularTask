@@ -1,1 +1,21 @@
-<p>request-collection works!</p>
+<div ngbDropdown class="dropdown">
+  <button
+    type="button"
+    class="btn btn-primary dropdown-toggle"
+    id="dropdownBasic1"
+    ngbDropdownToggle
+  >
+    Request to collection
+  </button>
+
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <div ngbDropdownItem *ngFor="let item of request">
+      <p>Pending</p>
+      <button class="btn btn-success">accept</button>
+      <button class="btn btn-danger" (click)="onDeclineRequest(item._id)">
+        decline
+      </button>
+      <hr />
+    </div>
+  </div>
+</div>

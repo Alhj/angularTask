@@ -5,11 +5,14 @@ import { getTask, changeCollection, getUser } from '../../helpers/fetchdata/fetc
 import { validateName } from '../../helpers/fetchdata/authSignin'
 import { delateCollection } from '../../helpers/fetchdata/fetchtask'
 import { createNewTask } from '../../helpers/fetchdata/fetchtask'
+import { getRequestCollection } from '../../helpers/fetchdata/requestToCollection'
 
 import { tasks, task } from '../../models/apiTask/types'
 import { IFindIndex } from '../../models/types/types'
 import { findCollectionIndex } from '../../helpers/find'
-import { createTask } from 'src/app/models/types/createTypes';
+import { createTask } from 'src/app/models/types/createTypes'
+import { IRequestCollection } from '../../models/apiTask/types'
+import { promise } from 'protractor';
 
 @Component({
   selector: 'app-tasks',
@@ -36,7 +39,7 @@ export class TasksComponent implements OnInit {
 
   isLoading:boolean = true
 
-  requestToCollection
+  requestToCollection : IRequestCollection[]
 
   async ngOnInit(): Promise<void> {
     this.router.paramMap.subscribe(async (params: ParamMap) => {
@@ -49,7 +52,7 @@ export class TasksComponent implements OnInit {
 
       if (!this.isUserRight) {
 
-        
+        this.requestToCollection = await getRequestCollection(this.id)
 
         this.isLoading = false
 
@@ -125,5 +128,9 @@ export class TasksComponent implements OnInit {
     if (!isNotEmpty) {
       this.isCollectionEmpty = false;
     }
+  }
+
+  async requestUpdate(): Promise<void> {
+    this.requestToCollection = await getRequestCollection(this.id)
   }
 }

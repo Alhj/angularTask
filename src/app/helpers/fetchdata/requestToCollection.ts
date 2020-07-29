@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import { IRequestCollection, IRequestColl } from '../../models/apiTask/types'
+import { IRequestCollection, IRequestBody } from '../../models/apiTask/types'
 import { IRequest } from '../../models/types/types'
 
 
@@ -10,7 +10,7 @@ export const sendRequest: (id: string) => Promise<boolean> = async (id: string) 
       authorization: localStorage.getItem('token')
     }
   }
-  const data: IRequestCollection = {
+  const data: IRequestBody = {
     requestCollectionId: id,
     user: localStorage.getItem('name')
   }
@@ -19,12 +19,31 @@ export const sendRequest: (id: string) => Promise<boolean> = async (id: string) 
   return res.status === 201
 }
 
-export const acceptRequest: () => Promise<boolean> = async () => {
+export const acceptRequest: (id: string) => Promise<boolean> = async (id: string) => {
+  const config: AxiosRequestConfig = {
+    headers: {
+      authorization: localStorage.getItem('token')
+    }
+  }
+  const url: string = `http://localhost:8080/collection/tasks/request/${id}`
+
+
+  const res = axios.put(url, '', config)
+
   return false
 }
 
-export const declineRequest: () => Promise<boolean> = async () => {
-  return false
+export const declineRequest: (id: string) => Promise<boolean> = async (id: string) => {
+  const config: AxiosRequestConfig = {
+    headers: {
+      authorization: localStorage.getItem('token')
+    }
+  }
+  const url: string = `http://localhost:8080/collection/tasks/request/${id}`
+
+  const res = await axios.delete(url, config)
+
+  return res.status === 204
 }
 
 export const getRequestUser: () => Promise<void> = async () => {
@@ -42,19 +61,18 @@ export const getRequestCollectionUser: () => Promise<IRequestCollection[]> = asy
 
   const res: IRequest = await axios.get(`http://localhost:8080/request/?name=${name}&isCollection=false`, config)
 
-  
+
   return res.data.requestCollection
 }
 
-export const getRequestCollection: (id:string) => Promise<IRequestCollection[]> = async (id:string) => {
+export const getRequestCollection: (id: string) => Promise<IRequestCollection[]> = async (id: string) => {
   const config: AxiosRequestConfig = {
     headers: {
       authorization: localStorage.getItem('token')
     }
   }
 
-  const res: IRequest = await axios.get(`http://localhost:8080/request/?name=${id}&isCollection=false`, config)
+  const res: IRequest = await axios.get(`http://localhost:8080/request/?name=${id}&isCollection=true`, config)
 
-  
   return res.data.requestCollection
 }

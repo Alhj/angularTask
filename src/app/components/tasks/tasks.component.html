@@ -30,9 +30,15 @@
   >
   </app-edit-task>
   <a routerLink="/tasks"> back</a>
-  <button class="m-2 addTask btn btn-secondary" (click)="onClickShow()">
-    add task
-  </button>
+  <span class="d-flex justify-content-end">
+    <button class="btn btn-secondary space_betwen" (click)="onClickShow()">
+      add task
+    </button>
+    <app-request-collection
+      [request]="requestToCollection"
+      (requestUpdate)="requestUpdate()"
+    ></app-request-collection>
+  </span>
   <div class="container">
     <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
   </div>
