@@ -1,8 +1,18 @@
 <div>
   <div *ngIf="isUserRight">
-    <app-collection-wrong-user [collectionId]="id"></app-collection-wrong-user>
+    <app-collection-wrong-user
+      [collectionId]="id"
+      [collectionName]="selectedTasks.project"
+    ></app-collection-wrong-user>
   </div>
+</div>
+<div *ngIf="isLoading; then loading; else afterLoading"></div>
 
+<ng-template #loading>
+  <app-loading-screen></app-loading-screen>
+</ng-template>
+
+<ng-template #afterLoading>
   <div *ngIf="showAddTask">
     <app-add-task
       (closeWindow)="onClose($event)"
@@ -48,4 +58,4 @@
       <h2>no item in the list</h2>
     </div>
   </ng-template>
-</div>
+</ng-template>

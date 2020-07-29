@@ -3,9 +3,12 @@
     <div class="card col-md-4">
       <article class="card-body">
         <div class=".text-center">
-          <h5>Do you whant to send request to join the collection</h5>
+          <h5>
+            Do you whant to send request to join the collection:
+            <strong>{{ name }}</strong>
+          </h5>
         </div>
-        <span>
+        <span class="d-flex justify-content-center">
           <button class="btn btn-primary margin" (click)="sendRequest()">
             send request
           </button>

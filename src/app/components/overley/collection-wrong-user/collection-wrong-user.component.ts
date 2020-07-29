@@ -14,6 +14,7 @@ export class CollectionWrongUserComponent {
 
   constructor(private router: Router, private messageService: MessageService) { }
   @Input('collectionId') id: string
+  @Input('collectionName') name:string
 
   async sendRequest(): Promise<void> {
     const res:Boolean = await sendRequest(this.id)

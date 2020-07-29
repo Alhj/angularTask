@@ -34,6 +34,9 @@ export class TasksComponent implements OnInit {
 
   showEditTask: boolean = false
 
+  isLoading:boolean = true
+
+  requestToCollection
 
   async ngOnInit(): Promise<void> {
     this.router.paramMap.subscribe(async (params: ParamMap) => {
@@ -41,9 +44,14 @@ export class TasksComponent implements OnInit {
 
       this.isUserRight = await getUser(this.id)
       
+      this.selectedTasks = await getTask(this.id)
+      
+
       if (!this.isUserRight) {
 
-        this.selectedTasks = await getTask(this.id)
+        
+
+        this.isLoading = false
 
         this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
       }

@@ -30,6 +30,8 @@ import { RequestUserComponent } from './components/overley/request-user/request-
 import { CollectionWrongUserComponent } from './components/overley/collection-wrong-user/collection-wrong-user.component';
 import { MessageComponent } from './components/message/message.component';
 import { RequestComponent } from './components/list/request/request.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RequestCollectionComponent } from './components/list/request-collection/request-collection.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { RequestComponent } from './components/list/request/request.component';
     CollectionWrongUserComponent,
     MessageComponent,
     RequestComponent,
+    RequestCollectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { RequestComponent } from './components/list/request/request.component';
     StoreModule.forRoot({signIn: signinReducer, message: messageReducer}),
     BrowserAnimationsModule,
     DragDropModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

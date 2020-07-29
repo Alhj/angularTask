@@ -17,17 +17,17 @@
     *ngIf="showDealteOverlay"
   >
   </app-delate-sure>
-  <span class="container">
-    <button class="btn btn-secondary" (click)="onClick()">
+  <span class="space d-flex justify-content-end">
+    <button class="btn btn-secondary space_betwen" (click)="onClick()">
       add collection
     </button>
     <app-request [requestList]="usersRequestCollection"></app-request>
+  </span>
     <div class="container">
       <div
         *ngIf="noCollectionFound; then noCollection; else haveCollection"
       ></div>
     </div>
-  </span>
 </ng-template>
 
 <ng-template #haveCollection>
