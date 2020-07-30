@@ -1,10 +1,17 @@
 <div ngbDropdown class="dropdown">
-  <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>
-    <strong>{{request.length}}</strong> Request
+  <button
+    type="button"
+    class="btn btn-primary dropdown-toggle"
+    id="dropdownBasic1"
+    ngbDropdownToggle
+  >
+    <strong>{{ request.length }}</strong> Request
   </button>
-  
+
   <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-    <p ngbDropdownItem *ngFor="let item of request">Pending</p>
-    <hr/>
+    <div ngbDropdownItem *ngFor="let item of request">
+      <p>{{ item.collectionName }} Pending</p>
+      <hr />
+    </div>
   </div>
 </div>

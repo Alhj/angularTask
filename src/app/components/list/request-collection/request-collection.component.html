@@ -10,8 +10,8 @@
 
   <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
     <div ngbDropdownItem *ngFor="let item of request">
-      <p>Pending</p>
-      <button class="btn btn-success">accept</button>
+      <p>{{ item.user }}</p>
+      <button class="btn btn-success" (click)="onAccpetRequest(item._id)">accept</button>
       <button class="btn btn-danger" (click)="onDeclineRequest(item._id)">
         decline
       </button>

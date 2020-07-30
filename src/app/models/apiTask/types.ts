@@ -28,11 +28,13 @@ export interface IUpdateTask {
 export interface IRequestCollection {
   _id: string
   requestCollectionId: string
+  collectionName:string
   user: string
 }
 
 export interface IRequestBody {
   requestCollectionId: string
+  collectionName: string
   user: string
 }
 

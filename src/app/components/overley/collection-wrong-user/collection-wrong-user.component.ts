@@ -14,13 +14,13 @@ export class CollectionWrongUserComponent {
 
   constructor(private router: Router, private messageService: MessageService) { }
   @Input('collectionId') id: string
-  @Input('collectionName') name:string
+  @Input('collectionName') name: string
 
   async sendRequest(): Promise<void> {
-    const res:Boolean = await sendRequest(this.id)
+    const res: Boolean = await sendRequest(this.id, this.name)
 
-    if(res) {
-      this.messageService.setMessage('collection have been added')
+    if (res) {
+      this.messageService.setMessage('request to collection have been send')
       this.messageService.setStatus(true)
     } else {
       this.messageService.setMessage('request has alrady been send')

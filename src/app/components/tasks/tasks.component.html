@@ -1,11 +1,3 @@
-<div>
-  <div *ngIf="isUserRight">
-    <app-collection-wrong-user
-      [collectionId]="id"
-      [collectionName]="selectedTasks.project"
-    ></app-collection-wrong-user>
-  </div>
-</div>
 <div *ngIf="isLoading; then loading; else afterLoading"></div>
 
 <ng-template #loading>
@@ -13,6 +5,12 @@
 </ng-template>
 
 <ng-template #afterLoading>
+  <div *ngIf="isUserRight">
+    <app-collection-wrong-user
+      [collectionId]="id"
+      [collectionName]="selectedTasks.project"
+    ></app-collection-wrong-user>
+  </div>
   <div *ngIf="showAddTask">
     <app-add-task
       (closeWindow)="onClose($event)"

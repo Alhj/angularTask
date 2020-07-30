@@ -1,9 +1,10 @@
-import axios, { AxiosRequestConfig } from 'axios'
+import axios from 'axios'
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { IRequestCollection, IRequestBody } from '../../models/apiTask/types'
 import { IRequest } from '../../models/types/types'
 
 
-export const sendRequest: (id: string) => Promise<boolean> = async (id: string) => {
+export const sendRequest: (id: string, name: string) => Promise<boolean> = async (id: string, name: string) => {
 
   const config: AxiosRequestConfig = {
     headers: {
@@ -12,6 +13,7 @@ export const sendRequest: (id: string) => Promise<boolean> = async (id: string) 
   }
   const data: IRequestBody = {
     requestCollectionId: id,
+    collectionName: name,
     user: localStorage.getItem('name')
   }
   const res = await axios.post('http://localhost:8080/collection/tasks/request', data, config)
@@ -28,9 +30,9 @@ export const acceptRequest: (id: string) => Promise<boolean> = async (id: string
   const url: string = `http://localhost:8080/collection/tasks/request/${id}`
 
 
-  const res = axios.put(url, '', config)
+  const res: AxiosResponse = await axios.put(url, '', config)
 
-  return false
+  return res.status === 203
 }
 
 export const declineRequest: (id: string) => Promise<boolean> = async (id: string) => {

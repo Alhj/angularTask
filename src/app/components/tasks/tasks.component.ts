@@ -12,7 +12,6 @@ import { IFindIndex } from '../../models/types/types'
 import { findCollectionIndex } from '../../helpers/find'
 import { createTask } from 'src/app/models/types/createTypes'
 import { IRequestCollection } from '../../models/apiTask/types'
-import { promise } from 'protractor';
 
 @Component({
   selector: 'app-tasks',
@@ -37,27 +36,27 @@ export class TasksComponent implements OnInit {
 
   showEditTask: boolean = false
 
-  isLoading:boolean = true
+  isLoading: boolean = true
 
-  requestToCollection : IRequestCollection[]
+  requestToCollection: IRequestCollection[]
 
   async ngOnInit(): Promise<void> {
     this.router.paramMap.subscribe(async (params: ParamMap) => {
       this.id = params.get('tasksID')
 
       this.isUserRight = await getUser(this.id)
-      
+
       this.selectedTasks = await getTask(this.id)
-      
+
 
       if (!this.isUserRight) {
 
         this.requestToCollection = await getRequestCollection(this.id)
 
-        this.isLoading = false
-
         this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
       }
+
+      this.isLoading = false
     })
   }
 
