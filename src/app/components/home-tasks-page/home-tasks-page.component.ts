@@ -29,7 +29,7 @@ export class HomeTasksPageComponent implements OnInit {
 
   usersRequestCollection: IRequestCollection[]
 
-  collectionInfo: ICollectionInfo 
+  collectionInfo: ICollectionInfo
 
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('token')) {

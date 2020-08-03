@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Router} from '@angular/router'
 
 import { getTask, changeCollection, getUser } from '../../helpers/fetchdata/fetchtask'
 import { validateName } from '../../helpers/fetchdata/authSignin'
@@ -21,7 +22,7 @@ import { IRequestCollection } from '../../models/apiTask/types'
 export class TasksComponent implements OnInit {
 
 
-  constructor(private router: ActivatedRoute) { }
+  constructor(private router: ActivatedRoute, private navigation: Router) { }
   id: string;
 
   selectedTasks: tasks;
@@ -41,23 +42,27 @@ export class TasksComponent implements OnInit {
   requestToCollection: IRequestCollection[]
 
   async ngOnInit(): Promise<void> {
-    this.router.paramMap.subscribe(async (params: ParamMap) => {
-      this.id = params.get('tasksID')
+    if (localStorage.getItem('name')) {
+      this.router.paramMap.subscribe(async (params: ParamMap) => {
+        this.id = params.get('tasksID')
 
-      this.isUserRight = await getUser(this.id)
+        this.isUserRight = await getUser(this.id)
 
-      this.selectedTasks = await getTask(this.id)
+        this.selectedTasks = await getTask(this.id)
 
 
-      if (!this.isUserRight) {
+        if (!this.isUserRight) {
 
-        this.requestToCollection = await getRequestCollection(this.id)
+          this.requestToCollection = await getRequestCollection(this.id)
 
-        this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
-      }
+          this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
+        }
 
-      this.isLoading = false
-    })
+        this.isLoading = false
+      })
+    } else {
+      this.navigation.navigate(['/'])
+    }
   }
 
   onClickShow(): void {
