@@ -31,8 +31,8 @@
 </ng-template>
 
 <ng-template #haveCollection>
-  <div class="container d-flex justify-content-between flex-wrap">
-    <div class="card p-4" *ngFor="let tasks of userTasks">
+  <div class="container d-flex flex-wrap">
+    <div class="card p-4 mr-auto" *ngFor="let tasks of userTasks">
       <app-links
         (dealteOverlay)="onDealteClick($event)"
         [tasks]="tasks"
