@@ -24,7 +24,6 @@ import { AddCollectionComponent } from './components/overley/add-collection/add-
 import { SignOutComponent } from './components/sign/sign-out/sign-out.component';
 import { DelateSureComponent } from './components/overley/delate-sure/delate-sure.component';
 import { EditTaskComponent } from './components/overley/edit-task/edit-task.component';
-import { LinksComponent } from './components/home-tasks-page/links/links.component';
 import { AddUserCollectionComponent } from './components/overley/add-user-collection/add-user-collection.component';
 import { RequestUserComponent } from './components/overley/request-user/request-user.component';
 import { CollectionWrongUserComponent } from './components/overley/collection-wrong-user/collection-wrong-user.component';
@@ -51,7 +50,6 @@ import { RequestCollectionComponent } from './components/list/request-collection
     SignOutComponent,
     DelateSureComponent,
     EditTaskComponent,
-    LinksComponent,
     AddUserCollectionComponent,
     RequestUserComponent,
     CollectionWrongUserComponent,

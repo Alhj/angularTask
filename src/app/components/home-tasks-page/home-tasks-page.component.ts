@@ -3,6 +3,8 @@ import { Router } from '@angular/router'
 
 import { getUserTasks } from '../../helpers/fetchdata/fetchTasks'
 import { getRequestCollectionUser } from '../../helpers/fetchdata/requestToCollection'
+import { MessageService } from '../../message/message.service'
+
 
 import { tasks } from '../../models/apiTask/types';
 import { ICollectionInfo } from '../../models/types/types'
@@ -15,7 +17,7 @@ import { IRequestCollection } from '../../models/apiTask/types'
   styleUrls: ['./home-tasks-page.component.css']
 })
 export class HomeTasksPageComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private message: MessageService) { }
 
   isLoading: boolean = true
 

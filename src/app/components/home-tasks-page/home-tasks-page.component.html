@@ -33,10 +33,14 @@
 <ng-template #haveCollection>
   <div class="container d-flex flex-wrap">
     <div class="card p-4 mr-auto" *ngFor="let tasks of userTasks">
-      <app-links
-        (dealteOverlay)="onDealteClick($event)"
-        [tasks]="tasks"
-      ></app-links>
+      <div class="card-body flex-fill">
+        <strong
+          ><a class="block" routerLink="{{ tasks._id }}">{{
+            tasks.project
+          }}</a></strong
+        >
+        <button class="btn btn-danger" (click)="onDealteClick(tasks)">X</button>
+      </div>
     </div>
   </div>
 </ng-template>
