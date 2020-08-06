@@ -5,3 +5,12 @@
 .space_betwen {
   margin-right: 10px;
 }
+
+.mLeft {
+  margin-left: 10px;
+}
+
+
+.inLine {
+  display:inline;
+}

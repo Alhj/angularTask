@@ -2,8 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router'
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+
 import { emailValidation, passwordLength, comparepass } from '../../../helpers/validation/signUpVali';
+import { MessageService } from '../../../message/message.service'
 import { signUp } from '../../../helpers/fetchdata/creatAccount'
+
+
 import { SignUpForm } from '../../../models/types/types'
 
 @Component({
@@ -13,7 +17,7 @@ import { SignUpForm } from '../../../models/types/types'
 })
 export class SignupComponent {
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder, private sMessage:MessageService) {
   }
   message: string = ''
 
@@ -43,7 +47,8 @@ export class SignupComponent {
     const signUpRes: boolean = await signUp(coustomData)
 
     if (signUpRes) {
-
+      this.sMessage.setMessage('account have been created')
+      this.sMessage.setStatus(true)
       this.router.navigate(['/signIn'])
     } else {
       this.message = 'somthing whent wrong'

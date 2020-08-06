@@ -23,23 +23,23 @@
     </button>
     <app-request [requestList]="usersRequestCollection"></app-request>
   </span>
-    <div class="container">
-      <div
-        *ngIf="noCollectionFound; then noCollection; else haveCollection"
-      ></div>
-    </div>
+  <div class="container">
+    <div
+      *ngIf="noCollectionFound; then noCollection; else haveCollection"
+    ></div>
+  </div>
 </ng-template>
 
 <ng-template #haveCollection>
   <div class="container d-flex flex-wrap">
     <div class="card p-4 mr-auto" *ngFor="let tasks of userTasks">
       <div class="card-body flex-fill">
-        <strong
+        <h3 class="inLine"
           ><a class="block" routerLink="{{ tasks._id }}">{{
             tasks.project
-          }}</a></strong
-        >
-        <button class="btn btn-danger" (click)="onDealteClick(tasks)">X</button>
+          }}</a>
+        </h3>
+        <button class="btn btn-danger mLeft" (click)="onDealteClick(tasks)">X</button>
       </div>
     </div>
   </div>

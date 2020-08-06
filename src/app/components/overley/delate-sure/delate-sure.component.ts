@@ -17,12 +17,13 @@ export class DelateSureComponent {
   @Output('dealte') dealte: EventEmitter<void> = new EventEmitter()
   @Input('CollectionInfo') collectionInfo: ICollectionInfo
 
-  constructor(private message:MessageService){}
+  constructor(private message: MessageService) { }
 
   async onDealte(): Promise<void> {
-    await dealteTasks(this.collectionInfo._id)
+    const dealteSuces: boolean = await dealteTasks(this.collectionInfo._id)
 
-    this.message.setMessage('collection have been dealte')
+    this.message.setMessage(dealteSuces ? 'Collection have been dealte' : 'Somthing whent wrong try again')
+    this.message.setStatus(dealteSuces)
 
     this.dealte.emit()
   }
