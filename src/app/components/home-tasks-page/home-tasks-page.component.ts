@@ -43,6 +43,7 @@ export class HomeTasksPageComponent implements OnInit {
 
       this.noCollectionFound = this.userTasks.length === 0;
 
+
     } else {
       this.router.navigate(['/'])
     }
