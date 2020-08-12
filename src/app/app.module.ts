@@ -31,6 +31,7 @@ import { MessageComponent } from './components/message/message.component';
 import { RequestComponent } from './components/list/request/request.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RequestCollectionComponent } from './components/list/request-collection/request-collection.component';
+import { LinkComponent } from './components/overley/link/link.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { RequestCollectionComponent } from './components/list/request-collection
     MessageComponent,
     RequestComponent,
     RequestCollectionComponent,
+    LinkComponent,
   ],
   imports: [
     BrowserModule,

@@ -100,3 +100,14 @@ export interface IValidUserRes extends IAxios {
 export interface IRequest extends IAxios {
   data: IRequestColl
 }
+
+
+interface IReqKey {
+  status: number
+  message: string
+  key: string
+}
+
+export interface IReqeustReqKey extends IAxios {
+ data: IReqKey
+}
