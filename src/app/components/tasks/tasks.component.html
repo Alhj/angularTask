@@ -27,6 +27,11 @@
     *ngIf="showEditTask"
   >
   </app-edit-task>
+  <app-link
+  [id]="id"
+  *ngIf="showLink"
+  >
+  </app-link>
   <span class="d-flex justify-content-end">
     <button class="btn btn-secondary space_betwen" (click)="onClickShow()">
       add task

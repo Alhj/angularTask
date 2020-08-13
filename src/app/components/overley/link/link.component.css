@@ -6,3 +6,11 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
+
+.inline {
+  display:inline
+}
+
+.requestLink:hover {
+ cursor: pointer;
+}

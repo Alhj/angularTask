@@ -37,6 +37,8 @@ export class TasksComponent implements OnInit {
 
   showEditTask: boolean = false
 
+  showLink : boolean = false
+
   isLoading: boolean = true
 
   requestToCollection: IRequestCollection[]
@@ -96,6 +98,18 @@ export class TasksComponent implements OnInit {
   onClose(close: boolean): void {
     if (close) {
       this.showAddTask = false;
+    }
+  }
+
+  onShowLink() {
+    if(!this.showLink) {
+      this.showLink = true
+    }
+  }
+
+  onClickLink() {
+    if(this.showLink) {
+      this.showLink = false
     }
   }
 
