@@ -12,7 +12,7 @@ import { MessageService } from '../../../message/message.service'
 export class LinkComponent implements OnInit {
 
   @Input('id') id: string
-
+  @Output('close') close :EventEmitter<void> = new EventEmitter()
   key: string
   link: string
 
@@ -21,6 +21,10 @@ export class LinkComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.key = await getRequestLink(this.id)
     this.link = `http://localhost:4200/joinCollection/${this.key}`
+  }
+
+  onClose(): void {
+    this.close.emit()
   }
 
   onClick(): void {
@@ -42,6 +46,8 @@ export class LinkComponent implements OnInit {
 
     this.messageService.setStatus(true)
     this.messageService.setMessage('link have been copyed')
+
+    this.onClose()
   }
 
 

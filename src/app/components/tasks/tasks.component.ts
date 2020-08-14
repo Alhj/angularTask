@@ -107,7 +107,7 @@ export class TasksComponent implements OnInit {
     }
   }
 
-  onClickLink() {
+  onCloseLink() {
     if(this.showLink) {
       this.showLink = false
     }
