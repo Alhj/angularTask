@@ -32,6 +32,7 @@ import { RequestComponent } from './components/list/request/request.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RequestCollectionComponent } from './components/list/request-collection/request-collection.component';
 import { LinkComponent } from './components/overley/link/link.component';
+import { RequestLinkComponent } from './components/request-link/request-link.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { LinkComponent } from './components/overley/link/link.component';
     RequestComponent,
     RequestCollectionComponent,
     LinkComponent,
+    RequestLinkComponent,
   ],
   imports: [
     BrowserModule,

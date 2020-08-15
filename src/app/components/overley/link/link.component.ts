@@ -20,7 +20,7 @@ export class LinkComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.key = await getRequestLink(this.id)
-    this.link = `http://localhost:4200/joinCollection/${this.key}`
+    this.link = `http://localhost:4200/request/${this.key}?collectionId=${this.id}`
   }
 
   onClose(): void {
