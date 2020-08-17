@@ -109,5 +109,15 @@ interface IReqKey {
 }
 
 export interface IReqeustReqKey extends IAxios {
- data: IReqKey
+  data: IReqKey
+}
+
+interface IReqCollectionName {
+  status: number
+  message: string
+  collectionName: string
+}
+
+export interface IReqeustCollectionName extends IAxios {
+  data: IReqCollectionName
 }

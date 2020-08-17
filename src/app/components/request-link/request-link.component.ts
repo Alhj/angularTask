@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 
+import { getCollectionName } from '../../helpers/fetchdata/info'
 
 @Component({
   selector: 'app-request-link',
@@ -12,14 +13,20 @@ export class RequestLinkComponent implements OnInit {
 
   key:string
   collectionId:string
+  collectionName:string
 
-
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.key = this.route.snapshot.paramMap.get('id')
     this.collectionId = this.route.snapshot.queryParamMap.get('collectionId')
+    this.collectionName = await getCollectionName(this.collectionId)
+  }
 
-    console.log(this.key)
-    console.log(this.collectionId)
+  async onJoin(): Promise<void> {
+    console.log('accept')
+  }
+
+  onDecline(): void {
+    console.log('back')
   }
 
 }
