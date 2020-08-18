@@ -20,3 +20,8 @@ export const getCollectionName: (id: string) => Promise<string> = async (id: str
   }
 
 }
+
+
+export const doUserExist: () => Promise<boolean> = async () => {
+  return false
+}

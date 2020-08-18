@@ -1,5 +1,18 @@
-<div class="container">
-  <p>are you sure you whant to join the collection <strong>{{collectionName}}</strong></p>
-  <button class="btn btn-primary" (click)="onJoin()">join</button>
-  <button class="btn btn-danger" (click)="onDecline()">back</button>
+<div *ngIf="isLoading; then ifLoading else ifDone">
+
 </div>
+
+<ng-template #ifLoading>
+  <app-loading-screen></app-loading-screen>
+</ng-template>
+
+<ng-template #ifDone>
+  <div class="container">
+    <p>
+      are you sure you whant to join the collection
+      <strong>{{ collectionName }}</strong>
+    </p>
+    <button class="btn btn-primary" (click)="onJoin()">join</button>
+    <button class="btn btn-danger" (click)="onDecline()">back</button>
+  </div>
+</ng-template>
