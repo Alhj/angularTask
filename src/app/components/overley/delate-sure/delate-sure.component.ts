@@ -22,8 +22,7 @@ export class DelateSureComponent {
   async onDealte(): Promise<void> {
     const dealteSuces: boolean = await dealteTasks(this.collectionInfo._id)
 
-    this.message.setMessage(dealteSuces ? 'Collection have been dealte' : 'Somthing whent wrong try again')
-    this.message.setStatus(dealteSuces)
+    this.message.setMessage(dealteSuces ? 'Collection have been dealte' : 'Somthing whent wrong try again', dealteSuces)
 
     this.dealte.emit()
   }

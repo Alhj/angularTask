@@ -8,14 +8,7 @@ import { IRequestCollection } from '../../../models/apiTask/types'
   templateUrl: './request.component.html',
   styleUrls: ['./request.component.css']
 })
-export class RequestComponent implements AfterViewChecked {
-  @Input('requestList') request : IRequestCollection[]
+export class RequestComponent {
+  @Input('requestList') request: IRequestCollection[]
   constructor() { }
-  ngAfterViewChecked(): void {
-   
-  }
-
-  ngOnInit(): void {
-  }
-
 }

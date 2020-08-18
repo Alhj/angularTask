@@ -12,9 +12,10 @@ export class MessageService {
 
   private timeOutStart: Boolean = false
 
-  setMessage(message: string): void {
+  setMessage(message: string, status: boolean): void {
     this.message = message
     this.show = true
+    this.status = status
   }
 
   removeMessage(): void {
@@ -27,9 +28,7 @@ export class MessageService {
     }
   }
 
-  setStatus(status: boolean): void {
-    this.status = status
-  }
+  
 
   private resetMessage(): void {
     this.message = ''

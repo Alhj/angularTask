@@ -34,13 +34,12 @@ export class RequestLinkComponent implements OnInit {
 
     if (acceptLinkRequest) {
       const url: string = `/tasks/${this.collectionId}`
-      this.messageService.setStatus(true),
-        this.messageService.setMessage('you have been added to collection')
+      this.messageService.setMessage('you have been added to collection', true)
 
       this.router.navigate([url])
     } else {
-      this.messageService.setStatus(false),
-        this.messageService.setMessage('somthing whent wrong or you are a user in the collection')
+      this.messageService.setMessage('somthing whent wrong or you are a user in the collection', false)
+
       this.router.navigate(['/'])
     }
   }

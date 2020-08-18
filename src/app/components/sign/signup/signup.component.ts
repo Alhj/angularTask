@@ -47,8 +47,7 @@ export class SignupComponent {
     const signUpRes: boolean = await signUp(coustomData)
 
     if (signUpRes) {
-      this.sMessage.setMessage('account have been created')
-      this.sMessage.setStatus(true)
+      this.sMessage.setMessage('account have been created', true)
       this.router.navigate(['/signIn'])
     } else {
       this.message = 'somthing whent wrong'

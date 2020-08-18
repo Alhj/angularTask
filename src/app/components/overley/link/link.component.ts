@@ -44,8 +44,7 @@ export class LinkComponent implements OnInit {
     document.execCommand('copy')
     document.body.removeChild(selBox)
 
-    this.messageService.setStatus(true)
-    this.messageService.setMessage('link have been copyed')
+    this.messageService.setMessage('link have been copyed', true)
 
     this.onClose()
   }

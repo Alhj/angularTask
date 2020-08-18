@@ -17,15 +17,10 @@ export class CollectionWrongUserComponent {
   @Input('collectionName') name: string
 
   async sendRequest(): Promise<void> {
-    const res: Boolean = await sendRequest(this.id, this.name)
+    const res: boolean = await sendRequest(this.id, this.name)
 
-    if (res) {
-      this.messageService.setMessage('request to collection have been send')
-      this.messageService.setStatus(true)
-    } else {
-      this.messageService.setMessage('request has alrady been send')
-      this.messageService.setStatus(false)
-    }
+    this.messageService.setMessage( res ? 'request to collection have been send' : 'request has alrady been send', res)
+
 
     this.router.navigate(['/tasks'])
   }
