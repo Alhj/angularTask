@@ -32,8 +32,8 @@ export class RequestLinkComponent implements OnInit {
   async onJoin(): Promise<void> {
     const acceptLinkRequest: boolean = await acceptLink(this.key, this.collectionId)
 
-      const url: string = `/tasks/${this.collectionId}`
-      this.messageService.setMessage(acceptLinkRequest ?'you have been added to collection' : 'somthing whent wrong or you are a user in the collection', acceptLinkRequest)
+    const url: string = `/tasks/${this.collectionId}`
+    this.messageService.setMessage(acceptLinkRequest ? 'you have been added to collection' : 'somthing whent wrong or you are a user in the collection', acceptLinkRequest)
 
     this.router.navigate([acceptLinkRequest ? url : '/'])
   }

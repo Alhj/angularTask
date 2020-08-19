@@ -1,6 +1,4 @@
-<div *ngIf="isLoading; then ifLoading else ifDone">
-
-</div>
+<div *ngIf="isLoading; then ifLoading; else ifDone"></div>
 
 <ng-template #ifLoading>
   <app-loading-screen></app-loading-screen>
@@ -8,11 +6,13 @@
 
 <ng-template #ifDone>
   <div class="container">
-    <p>
-      are you sure you whant to join the collection
-      <strong>{{ collectionName }}</strong>
-    </p>
-    <button class="btn btn-primary" (click)="onJoin()">join</button>
-    <button class="btn btn-danger" (click)="onDecline()">back</button>
+    <div class="text-center">
+      <h3>
+        Are you sure you whant to join the collection
+        <strong class="text-primary">{{ collectionName }}</strong>
+      </h3>
+      <button class="btn btn-primary space_bettwen" (click)="onJoin()">join</button>
+      <button class="btn btn-danger" (click)="onDecline()">back</button>
+    </div>
   </div>
 </ng-template>
