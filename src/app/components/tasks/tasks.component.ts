@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Router} from '@angular/router'
+import { Router } from '@angular/router'
 
 import { getTask, changeCollection, getUser } from '../../helpers/fetchdata/fetchtask'
-import { validateName } from '../../helpers/fetchdata/authSignin'
 import { delateCollection } from '../../helpers/fetchdata/fetchtask'
 import { createNewTask } from '../../helpers/fetchdata/fetchtask'
 import { getRequestCollection } from '../../helpers/fetchdata/requestToCollection'
+import { getCollectionUsers } from '../../helpers/fetchdata/fetchtask'
 
 import { tasks, task } from '../../models/apiTask/types'
 import { IFindIndex } from '../../models/types/types'
@@ -37,11 +37,13 @@ export class TasksComponent implements OnInit {
 
   showEditTask: boolean = false
 
-  showLink : boolean = false
+  showLink: boolean = false
 
   isLoading: boolean = true
 
   requestToCollection: IRequestCollection[]
+
+  users: string[]
 
   async ngOnInit(): Promise<void> {
     if (localStorage.getItem('name')) {
@@ -56,6 +58,8 @@ export class TasksComponent implements OnInit {
         if (!this.isUserRight) {
 
           this.requestToCollection = await getRequestCollection(this.id)
+
+          this.users = await getCollectionUsers(this.id)
 
           this.isCollectionEmpty = this.selectedTasks.taskCollection.length >= 1
         }
@@ -102,13 +106,13 @@ export class TasksComponent implements OnInit {
   }
 
   onShowLink() {
-    if(!this.showLink) {
+    if (!this.showLink) {
       this.showLink = true
     }
   }
 
   onCloseLink() {
-    if(this.showLink) {
+    if (this.showLink) {
       this.showLink = false
     }
   }

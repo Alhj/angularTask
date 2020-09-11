@@ -33,6 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RequestCollectionComponent } from './components/list/request-collection/request-collection.component';
 import { LinkComponent } from './components/overley/link/link.component';
 import { RequestLinkComponent } from './components/request-link/request-link.component';
+import { UsersComponent } from './components/list/users/users.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { RequestLinkComponent } from './components/request-link/request-link.com
     RequestCollectionComponent,
     LinkComponent,
     RequestLinkComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

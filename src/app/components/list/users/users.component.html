@@ -1,0 +1,15 @@
+<div ngbDropdown class="drowdown">
+  <button
+    type="button"
+    class="btn btn-color-primary"
+    id="showUsers"
+    ngbDropdownToggle
+  ></button>
+  users
+  <div ngbDropdownMenu aria-labelledby="showUsers">
+    <div ngbDropdownItem *ngFor="let user of users">
+      <p>{{ user }}</p>
+      <hr />
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
 import { tasks, taskCollection, IUpdateTask } from '../../models/apiTask/types'
-import { IAxiosGetTasks, IAxiosUppdate, IAxiosRequest } from '../../models/types/types'
+import { IAxiosGetTasks, IAxiosUppdate, IAxiosRequest, IRequestCollectionUser } from '../../models/types/types'
 import { createTask } from '../../models/types/createTypes'
 
 export const getTask: (id: string) => Promise<tasks> = async (id: string) => {
@@ -16,6 +16,20 @@ export const getTask: (id: string) => Promise<tasks> = async (id: string) => {
   const data = res.data
 
   return data.taskCollection
+}
+
+export const getCollectionUsers: (id: string) => Promise<string[]> = async (id: string) => {
+
+  const conf: AxiosRequestConfig = {
+    headers: {
+      authorization: localStorage.getItem('token')
+    },
+  }
+
+  const res: IRequestCollectionUser = await axios.get(`http://localhost:8080/info/collectio/users/${id}`, conf)
+
+
+  return res.data.users
 }
 
 export const getUser: (id: string) => Promise<boolean> = async (id: string) => {

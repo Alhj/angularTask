@@ -121,3 +121,11 @@ interface IReqCollectionName {
 export interface IReqeustCollectionName extends IAxios {
   data: IReqCollectionName
 }
+
+export interface IRequestCollectionUser extends IAxios {
+  data: {
+    statusCode: number
+    message: string
+    users: string []
+  }
+}

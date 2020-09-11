@@ -17,6 +17,7 @@ export const getUserTasks: () => Promise<tasks[]> = async () => {
   return res.data.taskCollection
 }
 
+
 export const dealteTasks: (id: String) => Promise<boolean> = async (id: string) => {
 
   const config: AxiosRequestConfig = {

@@ -46,6 +46,9 @@
     ></app-request-collection>
   </span>
   <div class="container">
+    <span>
+      <app-users [users]="users"></app-users>
+    </span>
     <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
   </div>
 
