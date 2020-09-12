@@ -1,6 +1,7 @@
 export interface tasks {
   _id: string
   project: string
+  admin?: string
   taskCollection: taskCollection[]
 }
 

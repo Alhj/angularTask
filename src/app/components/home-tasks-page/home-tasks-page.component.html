@@ -34,12 +34,16 @@
   <div class="container d-flex flex-wrap">
     <div class="card p-4 mr-auto" *ngFor="let tasks of userTasks">
       <div class="card-body flex-fill">
-        <h3 class="inLine"
-          ><a class="block" routerLink="{{ tasks._id }}">{{
-            tasks.project
-          }}</a>
+        <h3 class="inLine">
+          <a class="block" routerLink="{{ tasks._id }}">{{ tasks.project }}</a>
         </h3>
-        <button class="btn btn-danger mLeft" (click)="onDealteClick(tasks)">X</button>
+        <button
+          *ngIf="tasks.admin"
+          class="btn btn-danger mLeft"
+          (click)="onDealteClick(tasks)"
+        >
+          X
+        </button>
       </div>
     </div>
   </div>
