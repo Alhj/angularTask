@@ -27,12 +27,7 @@
     *ngIf="showEditTask"
   >
   </app-edit-task>
-  <app-link
-  [id]="id"
-  (close)="onCloseLink()"
-  *ngIf="showLink"
-  >
-  </app-link>
+  <app-link [id]="id" (close)="onCloseLink()" *ngIf="showLink"> </app-link>
   <span class="d-flex justify-content-end">
     <button class="btn btn-secondary space_betwen" (click)="onClickShow()">
       add task
@@ -46,9 +41,6 @@
     ></app-request-collection>
   </span>
   <div class="container">
-    <span>
-      <app-users [users]="users"></app-users>
-    </span>
     <div *ngIf="isCollectionEmpty; then ifList; else elseList"></div>
   </div>
 

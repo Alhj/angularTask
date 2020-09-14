@@ -58,6 +58,8 @@ export class TasksComponent implements OnInit {
         if (!this.isUserRight) {
 
           this.requestToCollection = await getRequestCollection(this.id)
+          
+          console.log(this.selectedTasks)
 
           this.users = await getCollectionUsers(this.id)
 

@@ -1,20 +1,24 @@
-<div>
-  <h2>{{ collection.name }}</h2>
-  <button class="btn btn-danger" (click)="delete()">x</button>
-</div>
-<div
-  cdkDropList
-  [cdkDropListData]="collection.task"
-  class="example-list"
-  (cdkDropListDropped)="drop($event)"
->
+<div class="around-border space">
+  <div class="d-flex justify-content-between">
+    <h2>{{ collection.name }}</h2>
+    <button class="btn btn-danger" (click)="delete()">x</button>
+  </div>
   <div
-    class="example-box"
-    *ngFor="let task of collection.task"
-    cdkDrag
-    [cdkDragData]="task"
+    cdkDropList
+    [cdkDropListData]="collection.task"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
   >
-    <h6>{{ task.name }}</h6>
-    <button class="btn btn-primary" (click)="editTaskClick(task.id)">edit</button>
+    <div
+      class="example-box"
+      *ngFor="let task of collection.task"
+      cdkDrag
+      [cdkDragData]="task"
+    >
+      <h6>{{ task.name }}</h6>
+      <button class="btn btn-primary" (click)="editTaskClick(task.id)">
+        edit
+      </button>
+    </div>
   </div>
 </div>
